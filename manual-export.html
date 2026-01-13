@@ -1,0 +1,546 @@
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地產代理資格考試案例題深度攻略 (完整版)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans TC"', 'sans-serif'],
+            },
+            colors: {
+              primary: '#003459',
+              'primary-light': '#004e85',
+              'primary-dark': '#001f36',
+              secondary: '#f8fafc',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
+        
+        @media print {
+            body { background-color: white !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .no-print { display: none !important; }
+            .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+            section { break-before: page; page-break-before: always; padding-top: 20px; }
+            section:first-of-type { break-before: auto; page-break-before: auto; }
+            @page { margin: 15mm; size: A4; }
+            h1 { font-size: 24pt !important; color: #003459 !important; }
+            h2 { font-size: 18pt !important; border-bottom: 2px solid #003459; padding-bottom: 5px; break-after: avoid; }
+            h3 { font-size: 14pt !important; color: #003459 !important; margin-top: 15px; break-after: avoid; }
+            h4, strong { break-after: avoid; }
+            ul, ol { break-before: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-8 md:p-16 max-w-5xl mx-auto">
+
+    <!-- 打印按鈕 -->
+    <div class="fixed bottom-8 right-8 no-print z-50">
+        <button onclick="window.print()" class="bg-primary hover:bg-primary-light text-white font-bold py-4 px-6 rounded-full shadow-lg flex items-center gap-2 transition-all transform hover:scale-105">
+            <i data-lucide="printer"></i> 立即導出 PDF (完整版)
+        </button>
+    </div>
+
+    <!-- 封面 -->
+    <div class="text-center mb-16 border-b-2 border-primary pb-10 avoid-break">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">地產代理資格考試<br/>案例題深度攻略</h1>
+        <p class="text-xl text-slate-600 mb-4">深度解析 • 核心考點 • 實戰陷阱</p>
+        <div class="text-sm text-slate-400">完整收錄法規細節與查冊要點</div>
+    </div>
+
+    <!-- 第一部分 -->
+    <section>
+        <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+            <i data-lucide="book-open" class="text-primary w-8 h-8"></i>
+            <h2 class="text-3xl font-bold text-primary">第一部分：考綱解讀與官方案例題考點剖析</h2>
+        </div>
+
+        <div class="space-y-8">
+            <div class="avoid-break">
+                <h3 class="text-xl font-bold text-primary border-l-4 border-primary pl-3 mb-4">一、案例題的基本考試模式</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg border border-slate-200">
+                        <strong class="block text-lg text-primary-dark mb-2">題型定位</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                            <li>案例題屬於考試第二部分，以個案分析形式命題，需綜合運用知識解決實際問題。</li>
+                            <li><strong>EAQE：</strong>共50題，其中第二部分為20題（基於1-2個個案）。</li>
+                            <li><strong>SQE：</strong>共50題，其中第二部分為10題（基於1-2個個案）。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200">
+                        <strong class="block text-lg text-primary-dark mb-2">考核目標</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-700 space-y-1">
+                            <li>測試考生融會貫通知識的能力，包括法規理解、實務操作、風險識別及職業道德。</li>
+                            <li>要求考生能夠分析真實交易場景，並作出符合法例和執業守則的判斷。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avoid-break">
+                <h3 class="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">二、案例題的核心考綱範圍</h3>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 space-y-8">
+                    <!-- 1 & 2 -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">1. 物業交易流程與文件處理</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                                <li><strong>關鍵文件的使用：</strong>正確填寫和解釋訂明地產代理協議（表格3-6，根據不同情況選用）、物業資料表格（表格1）、出租資料表格（表格2）。</li>
+                                <li><strong>臨約審核：</strong>臨時買賣合約的條款審核（如「現狀」出售、空置管有權交付、成交日期、訂金安排等）。</li>
+                                <li><strong>交易合規性：</strong>訂金托管要求（例如應由律師托管）、成交前查核（業權負擔、物業現狀、租約條款、政府命令）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">2. 土地查冊與業權分析</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                                <li><strong>查冊文件解讀：</strong>識別物業的有效產權負擔（如按揭、押記令、建築命令、清拆令、大廈公契註冊、訴訟待決登記等）。</li>
+                                <li><strong>業權完整性：</strong>分析聯權共有/分權共有的影響、遺產承辦問題。</li>
+                                <li><strong>風險提示責任：</strong>須向客戶解釋查冊結果，並強烈建議客戶徵詢獨立法律意見。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-200"></div>
+                    <!-- 3 & 4 -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">3. 法規與執業守則的應用</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-1">
+                                <li><strong>地產代理條例：</strong>披露利益衝突（雙邊代理須獲書面同意、實益權益）、廣告宣傳合規性（放盤價同意書、牌照號碼）。</li>
+                                <li><strong>其他法例：</strong>《防止賄賂條例》、《個人資料（私隱）條例》、《一手住宅物業銷售條例》、《印花稅條例》、《建築物條例》、《競爭條例》。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">4. 租務與物業管理</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-2">
+                                <li>租約條款分析（租期、免租期、維修責任）。</li>
+                                <li>印花稅計算。</li>
+                                <li>分租限制與業主同意要求。</li>
+                                <li>承按人同意書（出租前需銀行同意）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-slate-200"></div>
+                    <!-- 5 & 6 -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">5. 建築物合規與用途限制</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-2">
+                                <li>佔用許可證（「入伙紙」）用途核查。</li>
+                                <li>違例建築工程（僭建物）風險評估、拆卸令。</li>
+                                <li>大廈公契約束（商用/住宅限制、寵物、維修責任）。</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-primary text-lg mb-2">6. 倫理與專業責任</h4>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 space-y-2">
+                                <li>受信責任 (Fiduciary Duty)：誠實、忠誠、勤勉。</li>
+                                <li>避免失實陳述、履行盡職調查義務。</li>
+                                <li>對弱勢客戶的額外保護。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="avoid-break">
+                <h3 class="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">三、典型案例題特徵</h3>
+                <div class="bg-blue-50 p-5 rounded-lg border border-blue-100">
+                    <ul class="list-disc pl-5 text-sm text-slate-700 space-y-2">
+                        <li><strong>場景複雜性強：</strong>涉及多重按揭、業權繼承問題、建築命令或清拆令、違例用途，要求考生識別關鍵風險點。</li>
+                        <li><strong>多步驟決策鏈：</strong>客戶指示 → 訂立協議 → 查冊 → 視察 → 廣告 → 轉達要約 → 簽約 → 成交。</li>
+                        <li><strong>跨法例整合：</strong>同一案例涉及多部條例與操守守則的交疊要求。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="avoid-break">
+                <h3 class="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">四、官方案例題考點剖析</h3>
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-primary text-white text-center text-xs uppercase">
+                            <tr>
+                                <th class="px-4 py-3 border-r border-slate-500">核心模塊</th>
+                                <th class="px-4 py-3 border-r border-slate-500">具體考點</th>
+                                <th class="px-4 py-3">考查重點概要</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 bg-white">
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">代理責任</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">披露義務與協議</td>
+                                <td class="px-4 py-3 align-middle">必須披露可能影響代理人獨立性的利益（親屬、雙邊代理、額外獎賞）；協議須在行動前訂立。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">牌照合規</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">牌照與通知</td>
+                                <td class="px-4 py-3 align-middle">判斷豁免條件；經理須由持牌人擔任；人事變動通知(7天/31天)。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">物業產權</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">負擔與文件</td>
+                                <td class="px-4 py-3 align-middle">識別按揭、押記、建築令；授權書須註冊；實用面積來源；租契年期。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">租賃事務</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">法律與管理</td>
+                                <td class="px-4 py-3 align-middle">超過3年須註冊契據；出租需承按人同意；沒收租賃權條件。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">交易風險</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">臨約與訂金</td>
+                                <td class="px-4 py-3 align-middle">禁止空白合約；核實賣方身份；訂金律師托管；反洗錢CDD。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">廣告宣傳</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">真實性與同意</td>
+                                <td class="px-4 py-3 align-middle">須獲書面同意；價格/面積/圖片須真實；列明牌照號碼。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">一手銷售</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">銷售秩序</td>
+                                <td class="px-4 py-3 align-middle">實用面積計價；提供售樓說明書/價單；佩戴證件；禁止無牌推廣。</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-bold text-center bg-slate-50 border-r align-middle">違規後果</td>
+                                <td class="px-4 py-3 font-bold text-primary border-r align-middle">處罰與紀律</td>
+                                <td class="px-4 py-3 align-middle">無牌執業(最高監禁2年/50萬)；撤銷/吊銷牌照；罰款。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二部分 Part 1 -->
+    <section>
+        <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+            <i data-lucide="scale" class="text-primary w-8 h-8"></i>
+            <h2 class="text-3xl font-bold text-primary">第二部分 Part 1：核心原則與思維框架</h2>
+        </div>
+
+        <div class="space-y-8">
+            <!-- 原則一 -->
+            <div class="avoid-break bg-white p-8 rounded-xl shadow-sm border-t-4 border-primary">
+                <h3 class="text-2xl font-bold text-primary mb-4">原則一：受信責任 (Fiduciary Duty)</h3>
+                <p class="text-slate-700 mb-4"><strong>核心內涵：</strong>客戶利益至上。對客戶負有最高標準的誠信、忠誠、謹慎和勤勉。</p>
+                <div class="bg-slate-50 p-5 rounded border border-slate-200 mb-4">
+                    <strong class="block text-primary-dark mb-2">具體行為準則：</strong>
+                    <ul class="list-disc pl-5 text-sm text-slate-700 space-y-2">
+                        <li><strong>忠誠義務：</strong>禁止利益衝突（除非全面披露並獲書面同意）、不得謀取秘密利潤。</li>
+                        <li><strong>信息披露：</strong>
+                            <ul class="list-[circle] pl-5 mt-1">
+                                <li>雙邊代理：須獲雙方書面同意。</li>
+                                <li>實益權益：須披露代理人或親屬擁有的權益。</li>
+                                <li>佣金：披露佣金及回贈。</li>
+                            </ul>
+                        </li>
+                        <li><strong>保密義務：</strong>不得洩露客戶財務狀況、底價等機密。</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                    <strong>典型錯誤：</strong>為促成交易隱瞞缺陷；未經同意同時代表雙方；賺取差價。
+                </div>
+            </div>
+
+            <!-- 原則二 -->
+            <div class="avoid-break bg-white p-8 rounded-xl shadow-sm border-t-4 border-primary">
+                <h3 class="text-2xl font-bold text-primary mb-4">原則二：盡職調查 (Due Diligence)</h3>
+                <p class="text-slate-700 mb-4"><strong>核心內涵：</strong>「核實」而非「聽信」。採取積極步驟查證信息準確性。</p>
+                <div class="bg-slate-50 p-5 rounded border border-slate-200 mb-4">
+                    <strong class="block text-primary-dark mb-2">信息的訂明來源：</strong>
+                    <ul class="list-disc pl-5 text-sm text-slate-700 space-y-2">
+                        <li><strong>面積/用途：</strong>差餉物業估價署、入伙紙、建築圖則（非業主口述）。</li>
+                        <li><strong>業權/負擔：</strong>必須進行土地查冊並解讀結果。</li>
+                        <li><strong>賣方身份：</strong>核對身份證與查冊業主姓名。</li>
+                        <li><strong>風險轉介：</strong>遇複雜問題（如僭建、稅務），須書面建議尋求專業意見。</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                    <strong>典型錯誤：</strong>直接轉述業主提供的面積；發現僭建僅口頭說「沒問題」。
+                </div>
+            </div>
+
+            <!-- 原則三 -->
+            <div class="avoid-break bg-white p-8 rounded-xl shadow-sm border-t-4 border-primary">
+                <h3 class="text-2xl font-bold text-primary mb-4">原則三：避免失實陳述 (Avoid Misrepresentation)</h3>
+                <p class="text-slate-700 mb-4"><strong>核心內涵：</strong>禁止在要項上作出虛假或具誤導性的陳述（包括故意、疏忽或無過失）。</p>
+                <div class="bg-slate-50 p-5 rounded border border-slate-200 mb-4">
+                    <strong class="block text-primary-dark mb-2">具體準則：</strong>
+                    <ul class="list-disc pl-5 text-sm text-slate-700 space-y-2">
+                        <li><strong>主動陳述：</strong>價格、面積、用途、狀況必須真實準確。</li>
+                        <li><strong>不得隱瞞：</strong>凶宅、嚴重滲漏、政府命令等重大不利事實必須披露。</li>
+                        <li><strong>推測性陳述：</strong>關於回報率的預測必須有合理基礎。</li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                    <strong>典型錯誤：</strong>廣告使用非該物業圖片；誇大回報；隱瞞凶宅。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第二部分 Part 2 -->
+    <section>
+        <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+            <i data-lucide="git-merge" class="text-primary w-8 h-8"></i>
+            <h2 class="text-3xl font-bold text-primary">第二部分 Part 2：交易全流程合規要點</h2>
+        </div>
+
+        <div class="space-y-8 ml-4 border-l-2 border-slate-200 pl-8">
+            <!-- Stage 1 -->
+            <div class="avoid-break bg-white p-6 rounded-lg shadow-sm border border-slate-100 relative">
+                <div class="absolute -left-12 top-6 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</div>
+                <h3 class="text-xl font-bold text-primary mb-4">階段一：接獲委託與訂立代理協議</h3>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-4 rounded border">
+                        <strong class="text-primary-dark block mb-1">考點：強制訂立時間</strong>
+                        <p class="text-sm text-slate-600">賣方：放盤7日內 / 廣告前 / 簽約前（最早者）。<br>買方：視察前 / 簽約前。</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                        <strong>陷阱：</strong>未簽協議即帶看/登廣告；未披露雙邊代理；未列明佣金或獨家條款。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="avoid-break bg-white p-6 rounded-lg shadow-sm border border-slate-100 relative">
+                <div class="absolute -left-12 top-6 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</div>
+                <h3 class="text-xl font-bold text-primary mb-4">階段二：物業推廣與廣告宣傳</h3>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-4 rounded border">
+                        <strong class="text-primary-dark block mb-1">考點：廣告合規</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>必須獲賣方<strong>書面同意</strong>。</li>
+                            <li>二手樓必須提供<strong>實用面積</strong>（不可小於建築面積字體）。</li>
+                            <li>價格必須真實，不可用「誘餌價」。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                        <strong>陷阱：</strong>廣告價低於放盤價；僅列建築面積；隱瞞凶宅；無牌照號碼。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="avoid-break bg-white p-6 rounded-lg shadow-sm border border-slate-100 relative">
+                <div class="absolute -left-12 top-6 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</div>
+                <h3 class="text-xl font-bold text-primary mb-4">階段三：要約協商與物業視察</h3>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-4 rounded border">
+                        <strong class="text-primary-dark block mb-1">考點：公平呈遞與視察</strong>
+                        <ul class="list-disc pl-5 text-sm text-slate-600">
+                            <li>及時、客觀呈遞<strong>所有</strong>書面要約。</li>
+                            <li>必須陪同視察（除非客戶另有指示）。</li>
+                            <li>雙邊代理須獲雙方書面同意才可展示物業。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                        <strong>陷阱：</strong>未呈遞低價要約；未陪同視察；雙邊代理未經同意展示物業。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="avoid-break bg-white p-6 rounded-lg shadow-sm border border-slate-100 relative">
+                <div class="absolute -left-12 top-6 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</div>
+                <h3 class="text-xl font-bold text-primary mb-4">階段四：臨約簽署與訂金處理</h3>
+                <div class="space-y-4">
+                    <div class="bg-orange-50 p-4 rounded border border-orange-100 text-sm text-orange-900">
+                        <strong class="block mb-2 flex items-center gap-2"><i data-lucide="alert-triangle" size="16"></i> 高風險：核實身份</strong>
+                        <ul class="list-disc pl-5">
+                            <li>核對身份證與查冊業主姓名。</li>
+                            <li>授權代表：必須有<strong>已註冊的授權書 (Deed)</strong>。</li>
+                            <li>送讓契/身份存疑：必須披露風險，建議法律意見，取得買方書面確認。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded border">
+                        <strong class="text-primary-dark block mb-1">考點：訂金處理</strong>
+                        <p class="text-sm text-slate-600">首選律師托管。若代管，必須存入<strong>獨立信託帳戶</strong>，不可與公司資金混合。</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded border border-red-100 text-sm text-red-800">
+                        <strong>禁止空白合約：</strong>嚴禁安排簽署成交價、日期等留空的合約。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="avoid-break bg-white p-6 rounded-lg shadow-sm border border-slate-100 relative">
+                <div class="absolute -left-12 top-6 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</div>
+                <h3 class="text-xl font-bold text-primary mb-4">階段五：土地查冊深度解讀 (Land Search)</h3>
+                <p class="text-sm text-slate-600 mb-4">賣方代理須在<strong>緊接</strong>簽臨約前查冊並提供<strong>文本</strong>。</p>
+                
+                <!-- 產權負擔詳解 -->
+                <div class="bg-slate-50 p-4 rounded border border-slate-200 mb-4">
+                    <strong class="text-primary block mb-3 text-lg">2.3 物業涉及的轇轕 (Part III: Encumbrances) - 9大重點</strong>
+                    <div class="space-y-4 text-sm text-slate-700">
+                        <div>
+                            <strong class="text-primary-dark">1. 按揭 (Mortgage)</strong>
+                            <p>成交前須清還並由貸款人發出解除按揭契 (Deed of Discharge) 註冊。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">2. 押記令 (Charging Order)</strong>
+                            <p>欠債被法庭釘契。高風險，必須解除才可交易，銀行通常拒批按揭。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">3. 建築令/清拆令 (Building/Demolition Order)</strong>
+                            <p>業主須負責，若未遵從可能註冊「工程費用押記令」。嚴重影響按揭。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">4. 政府租契限制</strong>
+                            <p>留意用途限制（如住宅/商業）及批地條件。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">5. 地役權 (Easement)</strong>
+                            <p>如通行權、採光權，限制業主獨佔權。</p>
+                        </div>
+                        <div class="text-red-800 bg-red-50 p-2 border-l-4 border-red-500">
+                            <strong>6. 訴訟待決登記 (Lis Pendens)</strong>
+                            <p>高危！業權有爭議，強烈建議未解決前勿交易。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">7. 已註冊租賃協議</strong>
+                            <p>3年以上須註冊。買方需知悉是否連租約。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">8. 大廈公契 (DMC)</strong>
+                            <p>留意管理費欠款備忘錄、公用部分改動。</p>
+                        </div>
+                        <div>
+                            <strong class="text-primary-dark">9. 欠繳地租/差餉</strong>
+                            <p>政府有權追討甚至收回物業。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三部分 -->
+    <section>
+        <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+            <i data-lucide="building" class="text-primary w-8 h-8"></i>
+            <h2 class="text-3xl font-bold text-primary">第三部分：專題領域深度解析</h2>
+        </div>
+
+        <div class="space-y-8">
+            <!-- Topic 1 -->
+            <div class="avoid-break bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-primary mb-4 flex items-center gap-2"><i data-lucide="key" size="20"></i> 1. 租賃事務</h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p><strong>表格應用：</strong>業主(表格2)、租客(表格4)、雙邊(表格5)。雙邊代理須獲書面同意。</p>
+                    <p><strong>租約形式：</strong>超過3年須以<strong>契據(Deed)</strong>訂立並<strong>註冊</strong>。</p>
+                    <div class="bg-blue-50 p-3 rounded">
+                        <strong>劏房規管 (第IVA部)：</strong>
+                        <ul class="list-disc pl-5 mt-1">
+                            <li>4年租住權保障（首2年不可加租，後2年加租上限10%）。</li>
+                            <li>必須遞交表格CR109，否則無法追租。</li>
+                        </ul>
+                    </div>
+                    <p><strong>關鍵條款：</strong>用途、維修責任、承按人同意書、語言版本（中英如有歧義以何為準）。</p>
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="avoid-break bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-primary mb-4 flex items-center gap-2"><i data-lucide="alert-triangle" size="20"></i> 2. 違例建築工程 (僭建)</h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p><strong>五大風險：</strong>安全、法律(清拆令)、業權(收地)、財務(拒批按揭)、交易(拒絕成交)。</p>
+                    <p><strong>代理責任：</strong>
+                        <ul class="list-disc pl-5">
+                            <li>查冊看是否有命令。</li>
+                            <li>對比入伙紙圖則。</li>
+                            <li>實地視察。</li>
+                            <li>如實披露。</li>
+                            <li><strong>書面建議諮詢專業意見。</strong></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="avoid-break bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-primary mb-4 flex items-center gap-2"><i data-lucide="home" size="20"></i> 3. 一手住宅銷售</h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <div class="bg-red-50 p-3 rounded border border-red-100 text-red-800">
+                        <strong>核心法規：</strong>《一手住宅物業銷售條例》（刑事責任）及《競爭條例》。
+                    </div>
+                    <p><strong>強制規定：</strong>只能用<strong>實用面積</strong>報價和宣傳。</p>
+                    <p><strong>文件公布：</strong>售樓說明書(7日前)、價單(3日前)、銷售安排(3日前)。</p>
+                    <p><strong>禁止行為：</strong>
+                        <ul class="list-disc pl-5">
+                            <li>禁止「無票/收票」（提前探求意向）。</li>
+                            <li>禁止提供貸款（放債人條例）。</li>
+                            <li>禁止誤導性陳述。</li>
+                        </ul>
+                    </p>
+                    <p><strong>佣金與優惠：</strong>必須事前書面披露；不得與其他行家合謀定價。嚴禁無牌員工推廣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四部分 -->
+    <section>
+        <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+            <i data-lucide="gavel" class="text-primary w-8 h-8"></i>
+            <h2 class="text-3xl font-bold text-primary">第四部分：違規後果與紀律處分</h2>
+        </div>
+
+        <div class="space-y-6">
+            <div class="avoid-break bg-white p-6 rounded border border-slate-200">
+                <strong class="block text-primary mb-2 text-lg">調查與紀律程序</strong>
+                <ol class="list-decimal pl-5 text-sm text-slate-700 space-y-1">
+                    <li>初步調查與通知。</li>
+                    <li><strong>申述機會：</strong>收到通知後 <strong>21天</strong> 內書面申述。</li>
+                    <li>紀律研訊。</li>
+                    <li>裁決：21天內通知；撤銷牌照須刊憲。</li>
+                </ol>
+            </div>
+
+            <div class="avoid-break">
+                <strong class="block text-primary mb-2 text-lg">制裁措施</strong>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-center">
+                    <div class="bg-white border p-3 rounded shadow-sm">警告/譴責</div>
+                    <div class="bg-white border p-3 rounded shadow-sm">附加牌照條件 (CPD)</div>
+                    <div class="bg-white border p-3 rounded shadow-sm">罰款 (最高30萬)</div>
+                    <div class="bg-white border p-3 rounded shadow-sm">暫時吊銷牌照 (最多2年)</div>
+                    <div class="bg-red-50 border border-red-200 p-3 rounded shadow-sm text-red-800 font-bold col-span-2 md:col-span-1">撤銷牌照 (最嚴重)</div>
+                </div>
+            </div>
+
+            <div class="avoid-break bg-blue-50 p-5 rounded border border-blue-100">
+                <strong class="block text-primary mb-2">刑事罪行 (最高罰款50萬及監禁2年)</strong>
+                <ul class="list-disc pl-5 text-sm text-slate-700">
+                    <li>無牌執業。</li>
+                    <li>作出虛假或誤導性陳述。</li>
+                    <li>違反客戶款項信託帳戶規定。</li>
+                </ul>
+            </div>
+            
+            <div class="avoid-break bg-slate-50 p-5 rounded border border-slate-200">
+                <strong class="block text-primary mb-2">上訴機制</strong>
+                <p class="text-sm text-slate-700">
+                    不服決定可於 <strong>21天</strong> 內，向<strong>香港特別行政區行政長官會同行政會議</strong>提出上訴。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+    
