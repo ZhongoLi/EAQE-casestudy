@@ -1,20 +1,95 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 📚 EAQE 案例題攻略指南
 
-# Run and deploy your AI Studio app
+> 香港地產代理資格考試（EAQE）及營業員資格考試（SQE）案例題深度解析與備考策略
 
-This contains everything you need to run your app locally.
+[![GitHub Pages](https://img.shields.io/badge/Demo-GitHub%20Pages-blue?logo=github)](https://zhongoli.github.io/EAQE-casestudy/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1cWrRA21P9Lg_8lfIESRV5HnU0weFpwqf
+## 🌐 在線訪問
 
-## Run Locally
+**[👉 點擊此處查看網站](https://zhongoli.github.io/EAQE-casestudy/)**
 
-**Prerequisites:**  Node.js
+## 📖 項目簡介
 
+本項目是一個專為香港地產代理資格考試（EAQE）和營業員資格考試（SQE）設計的案例題學習指南。內容涵蓋考試大綱解讀、交易流程合規要點、專題深度解析以及紀律處分機制等核心知識點。
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 主要特點
+
+- 🎯 **考綱精準對照**：深入解析考試模式與核心考點
+- 📋 **交易流程全覆蓋**：從委託協議到成交交割的完整流程
+- ⚖️ **法規原則深度解讀**：誠實準確、盡職審查、利益衝突等核心原則
+- 🏢 **專題領域剖析**：租賃事務、違建合規、一手樓銷售
+- 📸 **一鍵導出圖片**：支持將任意章節導出為高清圖片，方便複習
+
+## 🚀 本地運行
+
+### 環境要求
+
+- Node.js 18+
+- npm 或 yarn
+
+### 安裝步驟
+
+```bash
+# 1. 克隆項目
+git clone https://github.com/ZhongoLi/EAQE-casestudy.git
+cd EAQE-casestudy
+
+# 2. 安裝依賴
+npm install
+
+# 3. 啟動開發服務器
+npm run dev
+```
+
+訪問 http://localhost:3000 查看應用。
+
+## 📦 部署
+
+本項目使用 GitHub Pages 進行部署：
+
+```bash
+# 構建並部署到 GitHub Pages
+npm run deploy
+```
+
+## 🛠️ 技術棧
+
+| 技術 | 用途 |
+|------|------|
+| React 19 | 前端框架 |
+| TypeScript | 類型安全 |
+| Vite 6 | 構建工具 |
+| Tailwind CSS | 樣式框架 |
+| html-to-image | 圖片導出 |
+| Lucide React | 圖標庫 |
+
+## 📁 項目結構
+
+```
+src/
+├── components/          # 可複用組件
+│   ├── UI.tsx           # 通用 UI 組件庫
+│   ├── Sidebar.tsx      # 側邊導航欄
+│   └── ExportableSection.tsx  # 可導出章節組件
+├── sections/            # 內容章節
+│   ├── Part1.tsx        # 考綱解讀與案例題考點剖析
+│   ├── Part2Process.tsx # 交易流程合規要點
+│   ├── Part2Principles.tsx # 核心法規原則
+│   ├── Part3.tsx        # 專題領域深度解析
+│   └── Part4.tsx        # 違規後果與紀律處分機制
+├── App.tsx              # 主應用組件
+└── main.tsx             # 應用入口
+```
+
+## 📄 授權
+
+本項目僅供學習參考使用。
+
+---
+
+<p align="center">
+  Made with ❤️ for EAQE/SQE 考生
+</p>
