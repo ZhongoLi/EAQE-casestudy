@@ -44,88 +44,144 @@
       
       @media print {
         @page {
-          margin: 12mm 15mm;
-          size: A4;
+          margin: 15mm 15mm;
+          size: A4 portrait;
         }
         
+        /* Reset all layout constraints that might break pagination */
+        html, body, #root, #main-content {
+          height: auto !important;
+          min-height: 0 !important; /* Changed from 'auto' for Firefox compat */
+          overflow: visible !important;
+          display: block !important;
+          position: relative !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
         /* Force color printing */
-        body {
+        * {
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
-          background: white !important;
         }
         
-        /* Hide sidebar and navigation elements */
+        body {
+          background: white !important;
+          font-size: 11pt !important; /* Optimal for reading on A4 */
+          line-height: 1.5 !important;
+        }
+        
+        /* Hide UI elements */
         #app-sidebar,
         .export-btn,
         .export-controls,
-        nav[aria-label],
-        [class*="fixed"] {
+        nav,
+        header, /* Hide the main header if desired, or keep it */
+        footer,
+        [class*="fixed"],
+        [class*="sticky"],
+        button {
           display: none !important;
         }
-        
-        /* Expand main content to full width */
-        #main-content {
+
+        /* Ensure main content takes full width */
+        main {
           margin: 0 !important;
           padding: 0 !important;
-          max-width: 100% !important;
           width: 100% !important;
+          max-width: 100% !important;
         }
         
-        /* Reset flex container */
-        body > div,
-        #root > div {
-          display: block !important;
+        /* Smart Pagination Logic */
+
+        /* Break before major sections */
+        section {
+          break-before: page;
+          page-break-before: always;
+          margin-top: 2rem !important;
+        }
+
+        /* Except the first section */
+        section:first-of-type {
+          break-before: avoid;
+          page-break-before: avoid;
+        }
+
+        /* Prevent breaking inside cards, but allow long ones to break if necessary */
+        .bg-white, 
+        .rounded-lg, 
+        .rounded-xl,
+        .border,
+        .mb-5 { /* Targets ExamPoint container */
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+
+        /* Ensure list items stay together */
+        li { 
+          break-inside: avoid; 
+          page-break-inside: avoid;
+        }
+        /* Orphans/widows - Chromium only */
+        @supports (orphans: 3) {
+          li { orphans: 3; widows: 3; }
         }
         
-        /* Improve page breaks */
-        section,
-        .bg-white,
-        .rounded-lg,
-        .rounded-xl {
+        /* Keep headers with their following content */
+        h1, h2, h3, h4, h5, h6 {
+          break-after: avoid;
+          page-break-after: avoid;
           break-inside: avoid;
           page-break-inside: avoid;
         }
         
-        h1, h2, h3, h4 {
-          break-after: avoid;
-          page-break-after: avoid;
+        /* General text flow */
+        p { 
+          margin-bottom: 0.8em !important; 
+          color: #334155 !important; 
         }
-        
-        /* Remove shadows and rounded corners for cleaner print */
+        @supports (orphans: 3) {
+          p { orphans: 3; widows: 3; }
+        }
+
+        /* List optimizations */
+        ul, ol { 
+          margin-left: 1.5em !important; 
+          margin-bottom: 1em !important;
+          break-before: avoid; /* Try to keep list with its header */
+        }
+
+        /* Clean up visual noise */
         .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
           box-shadow: none !important;
+          border: 1px solid #e2e8f0 !important; /* Replace shadow with subtle border */
         }
         
         .rounded-lg, .rounded-xl, .rounded-full {
           border-radius: 4px !important;
         }
         
-        /* Ensure backgrounds print */
-        .bg-primary,
-        .bg-blue-50,
-        .bg-red-50,
-        .bg-orange-50,
-        .bg-slate-50,
-        .bg-slate-100 {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-        
-        /* Typography for print */
-        body {
-          font-size: 11pt !important;
-          line-height: 1.5 !important;
-        }
-        
-        h1 { font-size: 20pt !important; }
-        h2 { font-size: 16pt !important; }
-        h3 { font-size: 14pt !important; }
-        h4 { font-size: 12pt !important; }
-        
-        /* Ensure links are visible */
+        /* Ensure links are readable but not distracting */
         a {
-          text-decoration: underline !important;
+          text-decoration: none !important;
+          color: #003459 !important;
+          font-weight: 500 !important;
+        }
+        
+        /* Add a footer to every page if browser supports it (mostly for Chrome) */
+        @page {
+          @bottom-center {
+            content: "EAQE / SQE 備考精華 - 地產代理考試攻略";
+            font-size: 9pt;
+            color: #94a3b8;
+          }
+          @bottom-right {
+            content: counter(page);
+            font-size: 9pt;
+            color: #94a3b8;
+          }
         }
       }
     </style>
