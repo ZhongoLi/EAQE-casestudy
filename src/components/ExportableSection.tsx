@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { Camera, Check, Loader2 } from 'lucide-react';
+import { Camera, Check, Loader2, Settings2, Minus, Plus } from 'lucide-react';
+import { toBlob } from 'html-to-image';
 
 interface ExportableSectionProps {
   children: React.ReactNode;
@@ -8,111 +9,95 @@ interface ExportableSectionProps {
   label?: string;
 }
 
+// 預設寬度選項
+const WIDTH_OPTIONS = [
+  { label: '窄', value: 600 },
+  { label: '標準', value: 800 },
+  { label: '寬', value: 1000 },
+  { label: '超寬', value: 1200 },
+];
+
 export const ExportableSection: React.FC<ExportableSectionProps> = ({ children, className = "", label = "複製圖片" }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isCopying, setIsCopying] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [exportWidth, setExportWidth] = useState(800); // 預設 800px
 
   const handleCopyImage = async () => {
     const element = sectionRef.current;
     if (!element) return;
-    
-    const html2canvas = (window as any).html2canvas;
-    if (!html2canvas) {
-        alert("截圖功能組件尚未加載完成，請刷新頁面再試。");
-        return;
-    }
 
     setIsCopying(true);
 
-    // 1. 獲取當前精確的寬高
-    const originalWidth = element.offsetWidth;
-    const originalHeight = element.offsetHeight;
-
     try {
-      const canvas = await html2canvas(element, {
-        scale: 3, 
+      // 獲取元素的實際尺寸
+      const rect = element.getBoundingClientRect();
+      const scale = exportWidth / rect.width;
+
+      // 使用 html-to-image 生成 Blob，應用指定寬度
+      const blob = await toBlob(element, {
+        quality: 1,
         backgroundColor: '#ffffff',
-        useCORS: true,
-        logging: false,
-        // 2. 鎖定尺寸
-        width: originalWidth,
-        height: originalHeight,
-        windowWidth: document.documentElement.scrollWidth,
-        windowHeight: document.documentElement.scrollHeight,
-        onclone: (clonedDoc: Document) => {
-            const clonedBody = clonedDoc.body;
-
-            // 3. 全局禁用動畫
-            const style = clonedDoc.createElement('style');
-            style.innerHTML = `
-              * { 
-                transition: none !important; 
-                animation: none !important; 
-                transform: none !important;
-                -webkit-font-smoothing: antialiased;
-                text-rendering: geometricPrecision;
-              }
-            `;
-            clonedBody.appendChild(style);
-
-            // 4. 隱藏按鈕
-            const btn = clonedDoc.querySelector('.export-btn');
-            if (btn) (btn as HTMLElement).style.display = 'none';
-
-            // 5. 表格修復
-            const tables = clonedDoc.querySelectorAll('table');
-            tables.forEach((table: HTMLElement) => {
-                table.style.borderCollapse = 'collapse';
-                table.style.borderSpacing = '0';
-                table.style.width = '100%';
-                table.style.backgroundColor = '#ffffff';
-            });
-
-            // 6. 容器修復
-            const wrappers = clonedDoc.querySelectorAll('.overflow-x-auto, .overflow-y-auto, .overflow-hidden');
-            wrappers.forEach((el: HTMLElement) => {
-                el.style.overflow = 'visible';
-                el.style.boxShadow = 'none';
-                el.style.borderRadius = '0';
-                el.style.width = '100%';
-                el.style.maxWidth = 'none';
-                el.style.display = 'block';
-            });
-
-            // 移除圓角
-            const rounded = clonedDoc.querySelectorAll('[class*="rounded"]');
-            rounded.forEach((el: HTMLElement) => {
-                el.style.borderRadius = '0';
-            });
+        // 設置畫布尺寸以確保完整捕獲
+        canvasWidth: exportWidth,
+        canvasHeight: Math.ceil(rect.height * scale),
+        // 使用像素比來提高清晰度
+        pixelRatio: 2,
+        // 忽略導出按鈕和設定面板
+        filter: (node) => {
+          return !node.classList?.contains('export-btn') && !node.classList?.contains('export-controls');
+        },
+        // 強制樣式覆蓋，確保截圖乾淨
+        style: {
+          transform: 'none',
+          boxShadow: 'none',
+          // 不強制設置 width 和 padding，保留原始佈局
+          boxSizing: 'border-box',
+          overflow: 'visible',
+          // 確保文字渲染清晰
+          fontFeatureSettings: '"kern" 1',
+          textRendering: 'geometricPrecision',
+          ['WebkitFontSmoothing' as any]: 'antialiased',
         }
       });
 
-      canvas.toBlob(async (blob: Blob | null) => {
-        if (!blob) throw new Error('Canvas is empty');
-        try {
-            const item = new ClipboardItem({ 'image/png': blob });
-            await navigator.clipboard.write([item]);
-            setIsSuccess(true);
-            setTimeout(() => setIsSuccess(false), 2000);
-        } catch (err) {
-            console.error('Clipboard write failed', err);
-            alert('瀏覽器阻止了寫入剪貼板，請使用右鍵另存圖片');
-        } finally {
-            setIsCopying(false);
-        }
-      }, 'image/png');
+      if (!blob) throw new Error('Blob generation failed');
+
+      // 寫入剪貼板
+      const item = new ClipboardItem({ 'image/png': blob });
+      await navigator.clipboard.write([item]);
+      
+      setIsSuccess(true);
+      setShowSettings(false);
+      setTimeout(() => setIsSuccess(false), 2000);
 
     } catch (error) {
       console.error('Screenshot failed:', error);
+      alert('生成圖片失敗，請重試或檢查瀏覽器權限。');
+    } finally {
       setIsCopying(false);
-      alert('生成圖片失敗');
     }
+  };
+
+  const adjustWidth = (delta: number) => {
+    setExportWidth(prev => Math.max(400, Math.min(1600, prev + delta)));
   };
 
   return (
     <div className={`relative group ${className}`}>
-      <div className="absolute -top-3 right-4 z-20 export-btn opacity-90 hover:opacity-100 transition-opacity">
+      {/* 導出按鈕容器 */}
+      <div className="absolute -top-3 right-4 z-20 export-btn opacity-90 hover:opacity-100 transition-opacity flex items-center gap-2">
+        {/* 設定按鈕 */}
+        <button
+          onClick={() => setShowSettings(!showSettings)}
+          className="p-2 rounded-full bg-slate-600 text-white hover:bg-slate-500 transition-colors shadow-md"
+          title="調整導出寬度"
+        >
+          <Settings2 size={14} />
+        </button>
+
+        {/* 導出按鈕 */}
         <button
           onClick={handleCopyImage}
           disabled={isCopying}
@@ -136,7 +121,50 @@ export const ExportableSection: React.FC<ExportableSectionProps> = ({ children, 
         </button>
       </div>
 
-      <div ref={sectionRef} className="p-1 bg-white rounded-xl">
+      {/* 寬度設定面板 */}
+      {showSettings && (
+        <div className="absolute -top-16 right-4 z-30 export-controls bg-white rounded-lg shadow-xl border border-slate-200 p-3 flex items-center gap-3">
+          <span className="text-xs text-slate-500">導出寬度:</span>
+          
+          {/* 快速選項 */}
+          <div className="flex gap-1">
+            {WIDTH_OPTIONS.map(opt => (
+              <button
+                key={opt.value}
+                onClick={() => setExportWidth(opt.value)}
+                className={`px-2 py-1 text-xs rounded ${
+                  exportWidth === opt.value 
+                    ? 'bg-primary text-white' 
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          {/* 微調按鈕 */}
+          <div className="flex items-center gap-1 border-l pl-2 ml-1">
+            <button
+              onClick={() => adjustWidth(-50)}
+              className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+              title="減少寬度"
+            >
+              <Minus size={12} />
+            </button>
+            <span className="text-xs text-slate-700 w-12 text-center">{exportWidth}px</span>
+            <button
+              onClick={() => adjustWidth(50)}
+              className="p-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+              title="增加寬度"
+            >
+              <Plus size={12} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div ref={sectionRef} className="p-4 bg-white rounded-xl">
         {children}
       </div>
     </div>

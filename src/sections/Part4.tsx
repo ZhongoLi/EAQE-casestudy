@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader, LawCard } from '../components/UI';
+import { SectionHeader, LawCard, OrderedList, List } from '../components/UI';
 import { ExportableSection } from '../components/ExportableSection';
 import { Gavel, AlertOctagon, GitPullRequest, RotateCcw, AlertTriangle } from 'lucide-react';
 
@@ -22,19 +22,11 @@ export const Part4: React.FC = () => {
             <div className="mb-6">
                 <strong className="text-primary-dark block mb-2 text-lg">一、觸發調查與紀律程序的情形 (Circumstances Triggering Investigation & Disciplinary Proceedings)</strong>
                 <p className="text-sm text-slate-600 mb-2">根據《地產代理條例》第28及29條，監管局在以下情況下可啟動調查或紀律程序：</p>
-                <ul className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
-                    <li><strong>監管局主動調查：</strong>當監管局有理由相信條例的規定可能未被遵守或已遭違反時，可書面委任調查員進行調查。</li>
-                    <li><strong>接獲投訴：</strong>任何人對持牌人的行為提出投訴，指控其：
-                        <ul className="list-disc pl-5 mt-1 text-slate-600">
-                            <li>沒有遵守或違反《地產代理條例》的任何條文；</li>
-                            <li>沒有資格持有或繼續持有牌照（即不符合「適當人選」的要求）；</li>
-                            <li>沒有遵守附加於其牌照上的任何條件；</li>
-                            <li>沒有遵守或違反根據條例訂立的任何規例（例如《地產代理常規（一般）規例》）；</li>
-                            <li>沒有遵守或違反任何《打擊洗錢及恐怖分子資金籌集條例》（Cap. 615）下的規定。</li>
-                        </ul>
-                    </li>
-                    <li><strong>行政總裁呈述：</strong>監管局行政總裁如有理由相信上述任何情況適用於任何持牌人，必須將該等事實向監管局呈述。</li>
-                </ul>
+                <OrderedList items={[
+                    "<strong>監管局主動調查：</strong>當監管局有理由相信條例的規定可能未被遵守或已遭違反時，可書面委任調查員進行調查。",
+                    "<strong>接獲投訴：</strong>任何人對持牌人的行為提出投訴，指控其：<ul class=\"list-disc pl-5 mt-1 text-slate-600\"><li>沒有遵守或違反《地產代理條例》的任何條文；</li><li>沒有資格持有或繼續持有牌照（即不符合「適當人選」的要求）；</li><li>沒有遵守附加於其牌照上的任何條件；</li><li>沒有遵守或違反根據條例訂立的任何規例（例如《地產代理常規（一般）規例》）；</li><li>沒有遵守或違反任何《打擊洗錢及恐怖分子資金籌集條例》（Cap. 615）下的規定。</li></ul>",
+                    "<strong>行政總裁呈述：</strong>監管局行政總裁如有理由相信上述任何情況適用於任何持牌人，必須將該等事實向監管局呈述。"
+                ]} />
             </div>
 
             <div>
@@ -135,13 +127,13 @@ export const Part4: React.FC = () => {
         <ExportableSection label="複製：刑事罪行">
           <LawCard title="四、刑事罪行與罰則 (Criminal Offences & Penalties)">
             <p className="text-sm mb-3 text-slate-600">某些嚴重違規行為不僅構成違紀，更直接觸犯《地產代理條例》下的<strong>刑事罪行</strong>。根據條例第55條，一經定罪，最高可處<strong>罰款港幣50萬元及監禁2年</strong>。主要罪行包括：</p>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-slate-700">
-              <li><strong>無牌執業：</strong>違反第15或16條，未持有有效牌照而從事地產代理工作。</li>
-              <li><strong>作出虛假或誤導性陳述：</strong>在牌照申請、續期、調查或紀律研訊過程中，作出在要項上虛假或具誤導性的陳述。</li>
-              <li><strong>拒絕配合調查：</strong>無合理辯解而拒絕回答調查員的問題或交出相關文件。</li>
-              <li><strong>妨礙監管局人員：</strong>在監管局人員執行職能時進行妨礙。</li>
-              <li><strong>違反客戶款項信託帳戶規定：</strong>例如將客戶款項與公司營運資金混合。</li>
-            </ul>
+            <List items={[
+              "<strong>無牌執業：</strong>違反第15或16條，未持有有效牌照而從事地產代理工作。",
+              "<strong>作出虛假或誤導性陳述：</strong>在牌照申請、續期、調查或紀律研訊過程中，作出在要項上虛假或具誤導性的陳述。",
+              "<strong>拒絕配合調查：</strong>無合理辯解而拒絕回答調查員的問題或交出相關文件。",
+              "<strong>妨礙監管局人員：</strong>在監管局人員執行職能時進行妨礙。",
+              "<strong>違反客戶款項信託帳戶規定：</strong>例如將客戶款項與公司營運資金混合。"
+            ]} />
             <p className="text-xs text-slate-500 mt-2 italic">此外，持牌人如在執業過程中觸犯其他法例（如《防止賄賂條例》、《個人資料（私隱）條例》、《競爭條例》、《一手住宅物業銷售條例》等），也須承擔相應的刑事或民事責任。</p>
           </LawCard>
         </ExportableSection>

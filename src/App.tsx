@@ -1,4 +1,5 @@
 import React from 'react';
+import { Sidebar } from './components/Sidebar';
 import { Part1 } from './sections/Part1';
 import { Part2Principles } from './sections/Part2Principles';
 import { Part2Process } from './sections/Part2Process';
@@ -7,24 +8,19 @@ import { Part4 } from './sections/Part4';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800">
-      <main id="main-content" className="w-full max-w-4xl mx-auto p-8 md:p-16">
-        
-        <header className="mb-12 text-center border-b pb-8 border-slate-100">
-          <div className="inline-block bg-primary/5 text-primary px-4 py-1.5 rounded-full text-sm font-bold mb-4 tracking-wide border border-primary/10">
-            備考筆記 Beta 1.0 (修訂版)
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
-            地產代理資格考試<br/>
-            <span className="text-2xl md:text-3xl font-medium text-slate-600 mt-2 block">個案分析重點梳理</span>
-          </h1>
-          <p className="text-base text-slate-500 max-w-2xl mx-auto leading-relaxed mt-4">
-            本內容旨在梳理常見案例題的核心考點與法規邏輯，供考生複習參考。<br/>
-            每個模塊右上角均有「📷 複製」按鈕，方便您製作獨立的學習卡片。
+    <div className="flex min-h-screen bg-slate-50 font-sans text-slate-800">
+      <Sidebar />
+      
+      {/* Main content area - responsive padding for sidebar */}
+      <main id="main-content" className="flex-1 w-full max-w-5xl mx-auto p-4 md:p-10 mt-16 md:mt-0 md:ml-0">
+        <header className="mb-10 md:mb-16 text-center md:text-left">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">案例題核心考點精講</h1>
+          <p className="text-base md:text-lg text-slate-600 max-w-3xl leading-relaxed">
+            本攻略專為地產代理資格考試 (EAQE) 及營業員資格考試 (SQE) 考生設計。匯集官方案例題核心考點、法規解讀及高頻陷阱。請配合右側/下方目錄閱讀。
           </p>
         </header>
 
-        <div className="space-y-16 pb-20">
+        <div className="space-y-16 md:space-y-20 pb-20">
           <Part1 />
           <Part2Principles />
           <Part2Process />
@@ -32,9 +28,8 @@ const App: React.FC = () => {
           <Part4 />
         </div>
         
-        <footer className="text-center text-slate-400 text-sm border-t pt-8 mt-12 pb-12">
-          <p>內部教研資料 • 僅供學員使用</p>
-          <p className="mt-2 text-xs text-slate-300">Last Updated: 2025</p>
+        <footer className="text-center text-slate-400 text-sm border-t pt-8 mt-12">
+          <p>備考資料僅供參考，請以官方最新法例及監管局指引為準。</p>
         </footer>
       </main>
     </div>

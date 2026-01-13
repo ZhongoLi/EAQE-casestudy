@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader, InfoCard, List } from '../components/UI';
+import { SectionHeader, InfoCard, List, SubSectionHeader, OrderedList } from '../components/UI';
 import { ExportableSection } from '../components/ExportableSection';
 import { Building, Key, Home, AlertTriangle, FileWarning, ShieldCheck } from 'lucide-react';
 
@@ -18,18 +18,18 @@ export const Part3: React.FC = () => {
             
             <div className="space-y-8">
             <div>
-                <h4 className="font-bold text-lg text-primary mb-2">一、核心法規依據 (Core Regulatory Basis)</h4>
-                <ul className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
-                    <li><strong>《地產代理常規（一般）規例》（Estate Agents Practice (General) Regulation, Cap. 511C）：</strong>規範地產代理在租賃交易中的行為和責任。</li>
-                    <li><strong>《業主與租客（綜合）條例》（Landlord and Tenant (Consolidation) Ordinance, Cap. 7）：</strong>規管業主與租客之間的權利和義務，特別是其中第IVA部對分間單位（「劏房」）的規管。</li>
-                    <li><strong>《地產代理條例》（Estate Agents Ordinance, Cap. 511）：</strong>提供地產代理的牌照制度和紀律處分框架。</li>
-                    <li><strong>《地產代理操守守則》（Code of Ethics）：</strong>提供地產代理在租賃業務中的專業行為和道德標準。</li>
-                    <li>地產代理監管局發出的相關<strong>《執業通告》</strong>（例如處理分間單位租賃的指引等）。</li>
-                </ul>
+                <SubSectionHeader title="一、核心法規依據 (Core Regulatory Basis)" />
+                <OrderedList items={[
+                    "<strong>《地產代理常規（一般）規例》（Estate Agents Practice (General) Regulation, Cap. 511C）：</strong>規範地產代理在租賃交易中的行為和責任。",
+                    "<strong>《業主與租客（綜合）條例》（Landlord and Tenant (Consolidation) Ordinance, Cap. 7）：</strong>規管業主與租客之間的權利和義務，特別是其中第IVA部對分間單位（「劏房」）的規管。",
+                    "<strong>《地產代理條例》（Estate Agents Ordinance, Cap. 511）：</strong>提供地產代理的牌照制度和紀律處分框架。",
+                    "<strong>《地產代理操守守則》（Code of Ethics）：</strong>提供地產代理在租賃業務中的專業行為和道德標準。",
+                    "地產代理監管局發出的相關<strong>《執業通告》</strong>（例如處理分間單位租賃的指引等）。"
+                ]} />
             </div>
 
             <div>
-                <h4 className="font-bold text-lg text-primary mb-2">二、租賃代理關係的建立：訂明表格的正確應用 (Establishing Lease Agency Relations)</h4>
+                <SubSectionHeader title="二、租賃代理關係的建立：訂明表格的正確應用 (Establishing Lease Agency Relations)" />
                 <p className="text-sm mb-2 text-slate-600">地產代理在接獲租賃委託時，必須使用由地產代理監管局訂明的代理協議表格：</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mt-3">
                     <div className="p-4 bg-blue-50 rounded border border-blue-100">
@@ -50,16 +50,14 @@ export const Part3: React.FC = () => {
             
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                <h4 className="font-bold text-lg text-primary mb-2">三、租約的形式與註冊 (Form and Registration of Lease)</h4>
-                <ul className="list-disc pl-5 text-sm space-y-2 text-slate-700">
-                    <li><strong>租期不超過3年：</strong>可以非契據形式（如簡單書面協議）訂立。口頭租約若符合《物業轉易及財產條例》（Cap. 219）第4(2)條的條件（即租期不超過3年、租金為市值租金，且租客持續管有），則具有法律效力，即使未註冊，租客的權益也能對抗後續的買家。然而，為保障各方利益，<strong>強烈建議訂立書面租約</strong>。</li>
-                    <li><strong>租期超過3年：</strong>必須以<strong>契據 (Deed)</strong> 形式訂立。契據需由各方簽署、蓋章及交付。
-                        <br/><strong>註冊：</strong>為期超過3年的租契必須在土地註冊處註冊，才能充分保障租客的權益，使其對後續的業主具有對抗第三方的法律約束力。
-                    </li>
-                </ul>
+                <SubSectionHeader title="三、租約的形式與註冊 (Form and Registration of Lease)" />
+                <List items={[
+                    "<strong>租期不超過3年：</strong>可以非契據形式（如簡單書面協議）訂立。口頭租約若符合《物業轉易及財產條例》（Cap. 219）第4(2)條的條件（即租期不超過3年、租金為市值租金，且租客持續管有），則具有法律效力，即使未註冊，租客的權益也能對抗後續的買家。然而，為保障各方利益，<strong>強烈建議訂立書面租約</strong>。",
+                    "<strong>租期超過3年：</strong>必須以<strong>契據 (Deed)</strong> 形式訂立。契據需由各方簽署、蓋章及交付。<br/><strong>註冊：</strong>為期超過3年的租契必須在土地註冊處註冊，才能充分保障租客的權益，使其對後續的業主具有對抗第三方的法律約束力。"
+                ]} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">四、《業主與租客（綜合）條例》第IVA部的應用（分間單位/「劏房」）</h4>
+                    <SubSectionHeader title="四、《業主與租客（綜合）條例》第IVA部的應用（分間單位/「劏房」）" />
                     <div className="bg-slate-50 p-4 rounded text-sm space-y-3 border border-slate-200">
                     <p className="text-slate-700">這是租賃事務中風險最高、規定最細的領域，持牌人必須嚴格執行監管局通告指引。</p>
                     <div>
@@ -94,24 +92,24 @@ export const Part3: React.FC = () => {
 
             <div className="grid md:grid-cols-2 gap-8 border-t pt-6">
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">五、表格CR109（新租出或重訂協議通知書）</h4>
-                    <ul className="list-disc pl-5 text-sm space-y-2 text-slate-700">
-                        <li><strong>法定要求：</strong>住宅租約的業主須在<strong>簽立租約後1個月內</strong>，向差餉物業估價署遞交<strong>表格CR109</strong>以作備案。</li>
-                        <li><strong>持牌人責任：</strong>必須提醒業主此項法定義務。</li>
-                        <li><strong>嚴重後果：</strong>若逾期遞交，業主會被罰款。若完全沒有遞交，業主將無權通過法律途徑向租客追討租金（即<strong>「雙重懲罰」</strong>）。</li>
-                    </ul>
+                    <SubSectionHeader title="五、表格CR109（新租出或重訂協議通知書）" />
+                    <List items={[
+                        "<strong>法定要求：</strong>住宅租約的業主須在<strong>簽立租約後1個月內</strong>，向差餉物業估價署遞交<strong>表格CR109</strong>以作備案。",
+                        "<strong>持牌人責任：</strong>必須提醒業主此項法定義務。",
+                        "<strong>嚴重後果：</strong>若逾期遞交，業主會被罰款。若完全沒有遞交，業主將無權通過法律途徑向租客追討租金（即<strong>「雙重懲罰」</strong>）。"
+                    ]} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">六、租約的關鍵條款與持牌人責任</h4>
-                    <ul className="list-disc pl-5 text-sm space-y-2 text-slate-700">
-                        <li><strong>物業詳情：</strong>地址必須與土地查冊一致。包括的泊車位、天台等附屬物業須清楚列明。</li>
-                        <li><strong>租約期限：</strong>明確列明租期、起止日期、免租期（如有）、續租權（如有）、解約條款（如有）。</li>
-                        <li><strong>用途條款：</strong>必須正確述明物業用途（如「住宅」、「辦公室」），不得誤導。</li>
-                        <li><strong>租金與按金：</strong>不得在業主未實際收到按金或上期租金前，安排業主簽署收訖確認。不得在所有應付款項（包括按金及首期租金）未實際收妥前，將物業鑰匙交予租客並安排其入伙。</li>
-                        <li><strong>傢俬電器清單：</strong>如租賃包括傢俬電器，<strong>強烈建議</strong>在租約內列出詳細清單，並註明維修責任方，以避免爭議。這雖然不是《常規規例》的法定要求，但屬專業執業的最佳實踐。</li>
-                        <li><strong>承按人同意：</strong>如物業有按揭，業主出租前通常需要取得<strong>承按銀行 (Mortgagee) 的書面同意</strong>。持牌人應提醒業主此點。</li>
-                        <li><strong>語言版本：</strong>如租約有中英文版本，必須清楚說明以何版本為準（例如「如中英文版本有任何歧義，概以英文版本為準」）。</li>
-                    </ul>
+                    <SubSectionHeader title="六、租約的關鍵條款與持牌人責任" />
+                    <List items={[
+                        "<strong>物業詳情：</strong>地址必須與土地查冊一致。包括的泊車位、天台等附屬物業須清楚列明。",
+                        "<strong>租約期限：</strong>明確列明租期、起止日期、免租期（如有）、續租權（如有）、解約條款（如有）。",
+                        "<strong>用途條款：</strong>必須正確述明物業用途（如「住宅」、「辦公室」），不得誤導。",
+                        "<strong>租金與按金：</strong>不得在業主未實際收到按金或上期租金前，安排業主簽署收訖確認。不得在所有應付款項（包括按金及首期租金）未實際收妥前，將物業鑰匙交予租客並安排其入伙。",
+                        "<strong>傢俬電器清單：</strong>如租賃包括傢俬電器，<strong>強烈建議</strong>在租約內列出詳細清單，並註明維修責任方，以避免爭議。這雖然不是《常規規例》的法定要求，但屬專業執業的最佳實踐。",
+                        "<strong>承按人同意：</strong>如物業有按揭，業主出租前通常需要取得<strong>承按銀行 (Mortgagee) 的書面同意</strong>。持牌人應提醒業主此點。",
+                        "<strong>語言版本：</strong>如租約有中英文版本，必須清楚說明以何版本為準（例如「如中英文版本有任何歧義，概以英文版本為準」）。"
+                    ]} />
                 </div>
             </div>
             </div>
@@ -128,35 +126,23 @@ export const Part3: React.FC = () => {
             
             <div className="space-y-6">
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">一、核心法規依據 (Core Regulatory Basis)</h4>
-                    <ul className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
-                        <li><strong>《建築物條例》（Buildings Ordinance, Cap. 123）及其附屬規例：</strong>規管香港建築物的設計、建造、改建、安全及清拆等事宜。</li>
-                        <li><strong>《地產代理常規（一般）規例》（Cap. 511C）：</strong>規範地產代理在提供物業資料時的準確性。</li>
-                        <li><strong>《地產代理操守守則》（Code of Ethics）：</strong>要求地產代理秉持誠實、忠誠、謹慎和勤勉的態度。</li>
-                        <li>地產代理監管局相關<strong>《執業通告》</strong>（如關於違例建築工程、非住宅物業的指引）。</li>
-                        <li><strong>大廈公契 (Deed of Mutual Covenant, DMC)：</strong>作為規範物業使用和管理的私人契約。</li>
-                    </ul>
+                    <SubSectionHeader title="一、核心法規依據 (Core Regulatory Basis)" />
+                    <OrderedList items={[
+                        "<strong>《建築物條例》（Buildings Ordinance, Cap. 123）及其附屬規例：</strong>規管香港建築物的設計、建造、改建、安全及清拆等事宜。",
+                        "<strong>《地產代理常規（一般）規例》（Cap. 511C）：</strong>規範地產代理在提供物業資料時的準確性。",
+                        "<strong>《地產代理操守守則》（Code of Ethics）：</strong>要求地產代理秉持誠實、忠誠、謹慎和勤勉的態度。",
+                        "地產代理監管局相關<strong>《執業通告》</strong>（如關於違例建築工程、非住宅物業的指引）。",
+                        "<strong>大廈公契 (Deed of Mutual Covenant, DMC)：</strong>作為規範物業使用和管理的私人契約。"
+                    ]} />
                 </div>
 
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">二、佔用許可證（「入伙紙」）的權威性 (Authority of Occupation Permit)</h4>
-                    <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
-                        <li><strong>定義：</strong>由建築事務監督 (Building Authority) 在樓宇落成後發出的法定文件，證明該建築物已按批准的圖則建成，並符合相關條例，可供占用。</li>
-                        <li><strong>關鍵信息：</strong>
-                            <ul className="list-[circle] pl-5 mt-1">
-                                <li><strong>樓宇落成日期：</strong>用以確定樓齡。</li>
-                                <li><strong>批准用途：</strong>明確指明每個單位在落成時的法定用途（如「住宅」、「辦公室」、「商店」、「工業」等）。這是判斷物業現有用途是否合法的最基本和最權威的依據。</li>
-                            </ul>
-                        </li>
-                        <li><strong>持牌人責任：</strong>
-                            <ul className="list-[circle] pl-5 mt-1">
-                                <li>在提供物業的許可用途資料時，<strong>必須依據入伙紙</strong>或經批准的建築圖則。</li>
-                                <li>必須清楚說明，該資料是入伙紙發出之日的狀況，並非保證物業<strong>現時或未來</strong>的用途完全合法。</li>
-                                <li>必須告知客戶，政府批地條款（載於土地查冊的第一部分）和大廈公契可能載有<strong>額外的用途限制</strong>，這些限制可能比入伙紙更為嚴格。</li>
-                                <li>必須建議客戶就其<strong>擬作的特定用途</strong>（如將住宅單位改作辦公室、將工業單位改作藝術工作室）尋求獨立的法律及/或專業意見，以確認其合法性。</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <SubSectionHeader title="二、佔用許可證（「入伙紙」）的權威性 (Authority of Occupation Permit)" />
+                    <List items={[
+                        "<strong>定義：</strong>由建築事務監督 (Building Authority) 在樓宇落成後發出的法定文件，證明該建築物已按批准的圖則建成，並符合相關條例，可供占用。",
+                        "<strong>關鍵信息：</strong><ul class=\"list-[circle] pl-5 mt-1\"><li><strong>樓宇落成日期：</strong>用以確定樓齡。</li><li><strong>批准用途：</strong>明確指明每個單位在落成時的法定用途（如「住宅」、「辦公室」、「商店」、「工業」等）。這是判斷物業現有用途是否合法的最基本和最權威的依據。</li></ul>",
+                        "<strong>持牌人責任：</strong><ul class=\"list-[circle] pl-5 mt-1\"><li>在提供物業的許可用途資料時，<strong>必須依據入伙紙</strong>或經批准的建築圖則。</li><li>必須清楚說明，該資料是入伙紙發出之日的狀況，並非保證物業<strong>現時或未來</strong>的用途完全合法。</li><li>必須告知客戶，政府批地條款（載於土地查冊的第一部分）和大廈公契可能載有<strong>額外的用途限制</strong>，這些限制可能比入伙紙更為嚴格。</li><li>必須建議客戶就其<strong>擬作的特定用途</strong>（如將住宅單位改作辦公室、將工業單位改作藝術工作室）尋求獨立的法律及/或專業意見，以確認其合法性。</li></ul>"
+                    ]} />
                 </div>
 
                 <div className="bg-slate-50 p-6 rounded-lg border border-slate-200">
@@ -207,17 +193,11 @@ export const Part3: React.FC = () => {
                 </div>
 
                 <div className="border-t pt-6">
-                    <h4 className="font-bold text-lg text-primary mb-2">四、大廈公契的重要性 (Importance of Deed of Mutual Covenant - DMC)</h4>
-                    <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
-                        <li><strong>定義：</strong>由發展商、管理公司與首名買家訂立的具法律約束力的契約，規範整幢大廈的管理、公用部分的使用權、維修責任及費用分攤等。所有現任和未來業主均受其條款約束。</li>
-                        <li><strong>對持牌人的意義：</strong>
-                            <ul className="list-[circle] pl-5 mt-1">
-                                <li>公契是了解物業<strong>管理費、管理模式、使用限制</strong>（如可否飼養寵物、是否允許作商業用途、對外牆或窗戶改動的限制）的重要文件。</li>
-                                <li>持牌人應建議客戶查閱公契，了解其作為業主的權利與責任，確保其預期用途和生活方式與公契條款相符。</li>
-                                <li><strong>公契的違反：</strong>如業主違反公契條款（例如擅自改動公用部分、拖欠管理費），可能導致業主立案法團或管理公司採取法律行動，甚至在物業上註冊押記。地產代理應提醒客戶留意並披露任何已知的公契違反。</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <SubSectionHeader title="四、大廈公契的重要性 (Importance of Deed of Mutual Covenant - DMC)" />
+                    <List items={[
+                        "<strong>定義：</strong>由發展商、管理公司與首名買家訂立的具法律約束力的契約，規範整幢大廈的管理、公用部分的使用權、維修責任及費用分攤等。所有現任和未來業主均受其條款約束。",
+                        "<strong>對持牌人的意義：</strong><ul class=\"list-[circle] pl-5 mt-1\"><li>公契是了解物業<strong>管理費、管理模式、使用限制</strong>（如可否飼養寵物、是否允許作商業用途、對外牆或窗戶改動的限制）的重要文件。</li><li>持牌人應建議客戶查閱公契，了解其作為業主的權利與責任，確保其預期用途和生活方式與公契條款相符。</li><li><strong>公契的違反：</strong>如業主違反公契條款（例如擅自改動公用部分、拖欠管理費），可能導致業主立案法團或管理公司採取法律行動，甚至在物業上註冊押記。地產代理應提醒客戶留意並披露任何已知的公契違反。</li></ul>"
+                    ]} />
                 </div>
             </div>
         </div>
@@ -236,54 +216,38 @@ export const Part3: React.FC = () => {
             <div className="space-y-6">
             {/* Section 1 added to be complete */}
             <div>
-                <h4 className="font-bold text-lg text-primary mb-2">一、核心法規依據 (Core Regulatory Basis)</h4>
-                <ul className="list-decimal pl-5 text-sm text-slate-700 space-y-2">
-                    <li><strong>《一手住宅物業銷售條例》（第621章）：</strong>這是規管一手住宅物業銷售的最高準則，具有刑事效力。</li>
-                    <li><strong>《地產代理條例》（第511章）及其附屬規例：</strong>提供地產代理的牌照制度和紀律處分框架。</li>
-                    <li><strong>地產代理監管局相關《執業通告》：</strong>（特別是編號13-04(CR) – 銷售一手住宅物業的指引；24-01(CR) – 地產代理在住宅物業交易中提供優惠及收取佣金的良好競爭做法指引等）。</li>
-                    <li><strong>《競爭條例》（Competition Ordinance, Cap. 619）：</strong>尤其涉及佣金及優惠安排，旨在防止合謀定價等反競爭行為。</li>
-                </ul>
+                <SubSectionHeader title="一、核心法規依據 (Core Regulatory Basis)" />
+                <OrderedList items={[
+                    "<strong>《一手住宅物業銷售條例》（第621章）：</strong>這是規管一手住宅物業銷售的最高準則，具有刑事效力。",
+                    "<strong>《地產代理條例》（第511章）及其附屬規例：</strong>提供地產代理的牌照制度和紀律處分框架。",
+                    "<strong>地產代理監管局相關《執業通告》：</strong>（特別是編號13-04(CR) – 銷售一手住宅物業的指引；24-01(CR) – 地產代理在住宅物業交易中提供優惠及收取佣金的良好競爭做法指引等）。",
+                    "<strong>《競爭條例》（Competition Ordinance, Cap. 619）：</strong>尤其涉及佣金及優惠安排，旨在防止合謀定價等反競爭行為。"
+                ]} />
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">二、關鍵合規要點剖析：面積表述的強制性規定</h4>
-                    <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
-                        <li><strong>唯一標準：</strong>在所有情況下，包括售樓說明書、價單、廣告及口頭陳述中，描述住宅物業的樓面面積和計算呎價時，<strong>必須且只能使用「實用面積」(Saleable Area)</strong>。</li>
-                        <li><strong>「實用面積」的法律定義：</strong>指該住宅物業的樓面面積，包括以下組成部分：
-                            <br/>- 該物業圍牆以內的面積（包括任何內部間隔及支柱的面積）。
-                            <br/>- 露台（如有）及工作平台（如有）的面積的百分之五十。
-                        </li>
-                        <li><strong>不計入實用面積：</strong>空調機房、窗台、閣樓、花園、天台、庭院等特定設施的面積（須符合條例的詳細規定，例如窗台、閣樓、花園、天台等面積<strong>不計入實用面積</strong>，但須在售樓說明書中列明）。</li>
-                        <li><strong>【刑事風險】：</strong>根據《一手住宅物業銷售條例》第38條，任何人發布或安排發布違反此規定的廣告，即屬犯罪，可處罰款及監禁。持牌人必須確保自己及所屬公司發出的所有宣傳材料完全合規。</li>
-                    </ul>
+                    <SubSectionHeader title="二、關鍵合規要點剖析：面積表述的強制性規定" />
+                    <List items={[
+                        "<strong>唯一標準：</strong>在所有情況下，包括售樓說明書、價單、廣告及口頭陳述中，描述住宅物業的樓面面積和計算呎價時，<strong>必須且只能使用「實用面積」(Saleable Area)</strong>。",
+                        "<strong>「實用面積」的法律定義：</strong>指該住宅物業的樓面面積，包括以下組成部分：<br/>- 該物業圍牆以內的面積（包括任何內部間隔及支柱的面積）。<br/>- 露台（如有）及工作平台（如有）的面積的百分之五十。",
+                        "<strong>不計入實用面積：</strong>空調機房、窗台、閣樓、花園、天台、庭院等特定設施的面積（須符合條例的詳細規定，例如窗台、閣樓、花園、天台等面積<strong>不計入實用面積</strong>，但須在售樓說明書中列明）。",
+                        "<strong>【刑事風險】：</strong>根據《一手住宅物業銷售條例》第38條，任何人發布或安排發布違反此規定的廣告，即屬犯罪，可處罰款及監禁。持牌人必須確保自己及所屬公司發出的所有宣傳材料完全合規。"
+                    ]} />
                 </div>
                 <div>
-                    <h4 className="font-bold text-lg text-primary mb-2">三、法定銷售文件的指引責任 (Guidance Responsibility)</h4>
+                    <SubSectionHeader title="三、法定銷售文件的指引責任 (Guidance Responsibility)" />
                     <p className="text-sm text-slate-600 mb-2">持牌人不得自行擬備或分發標題為「售樓說明書」的刊物，此舉屬嚴重犯罪。正確的做法是：</p>
-                    <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
-                        <li><strong>法定文件來源：</strong>所有銷售資料必須來自<strong>賣方（發展商）</strong>。法定文件包括：
-                            <br/>- <strong>售樓說明書 (Sales Brochure)：</strong>賣方須在開售前最少<strong>7日</strong>公布。
-                            <br/>- <strong>價單 (Price List)：</strong>賣方須在開售前最少<strong>3日</strong>公布。
-                            <br/>- <strong>銷售安排 (Sales Arrangement)：</strong>賣方須在開售前最少<strong>3日</strong>公布。
-                        </li>
-                        <li><strong>持牌人核心責任：</strong>
-                            <ul className="list-[circle] pl-5 mt-1">
-                                <li><strong>指引客戶查閱：</strong>必須建議準買家查閱由賣方提供的<strong>最新版本</strong>的售樓說明書、價單及銷售安排。</li>
-                                <li><strong>提供或告知途徑：</strong>
-                                    <br/>- 如果持牌人從賣方處取得了這些文件，應在<strong>不收取費用、不設條件</strong>的情況下提供給準買家。
-                                    <br/>- 如果未能提供，必須建議準買家前往賣方的銷售處索取，或到賣方指定的網站及由一手住宅物業銷售監管局設立的<strong>「一手住宅物業銷售資訊網」(SRPE)</strong> 查閱。
-                                </li>
-                                <li><strong>強調權威性：</strong>必須告知準買家，這些法定文件是最權威、最準確的信息來源，任何宣傳品均不能替代。</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <List items={[
+                        "<strong>法定文件來源：</strong>所有銷售資料必須來自<strong>賣方（發展商）</strong>。法定文件包括：<br/>- <strong>售樓說明書 (Sales Brochure)：</strong>賣方須在開售前最少<strong>7日</strong>公布。<br/>- <strong>價單 (Price List)：</strong>賣方須在開售前最少<strong>3日</strong>公布。<br/>- <strong>銷售安排 (Sales Arrangement)：</strong>賣方須在開售前最少<strong>3日</strong>公布。",
+                        "<strong>持牌人核心責任：</strong><ul class=\"list-[circle] pl-5 mt-1\"><li><strong>指引客戶查閱：</strong>必須建議準買家查閱由賣方提供的<strong>最新版本</strong>的售樓說明書、價單及銷售安排。</li><li><strong>提供或告知途徑：</strong><br/>- 如果持牌人從賣方處取得了這些文件，應在<strong>不收取費用、不設條件</strong>的情況下提供給準買家。<br/>- 如果未能提供，必須建議準買家前往賣方的銷售處索取，或到賣方指定的網站及由一手住宅物業銷售監管局設立的<strong>「一手住宅物業銷售資訊網」(SRPE)</strong> 查閱。</li><li><strong>強調權威性：</strong>必須告知準買家，這些法定文件是最權威、最準確的信息來源，任何宣傳品均不能替代。</li></ul>"
+                    ]} />
                 </div>
             </div>
 
             <div className="border-t pt-6 space-y-6">
                 <div>
-                        <h4 className="font-bold text-lg text-primary mb-3">四、提供優惠的合規指引 (根據《執業通告》24-01(CR))</h4>
+                        <SubSectionHeader title="四、提供優惠的合規指引 (根據《執業通告》24-01(CR))" />
                         <p className="text-sm text-slate-600 mb-3">向準買家提供優惠（如現金回贈、贈品等）是常見的營銷手法，但必須嚴格遵守競爭法則及披露要求。</p>
                         <div className="grid md:grid-cols-2 gap-6 text-sm">
                             <div className="bg-slate-50 p-4 rounded border border-slate-200">
@@ -305,24 +269,24 @@ export const Part3: React.FC = () => {
                 </div>
 
                 <div>
-                        <h4 className="font-bold text-lg text-primary mb-3">五、收取佣金的良好競爭做法與銷售秩序</h4>
+                        <SubSectionHeader title="五、收取佣金的良好競爭做法與銷售秩序" />
                         <div className="grid md:grid-cols-2 gap-6 text-sm">
                             <div className="bg-slate-50 p-4 rounded border border-slate-200">
                                 <strong className="block text-primary mb-2">收取佣金的良好競爭做法 (根據《執業通告》24-01(CR))</strong>
-                                <ul className="list-disc pl-5 text-slate-700 space-y-1">
-                                    <li><strong>制定書面政策：</strong>地產代理公司應自行制定書面的佣金政策，考慮因素包括物業價值、交易複雜程度、員工資歷及服務範圍等。</li>
-                                    <li><strong>事前書面披露：</strong>在訂立臨時買賣協議（或購樓意向登記）之前，必須向客戶（買方）提供信函，清晰列明：(a) 收取的佣金金額或費率；(b) 將履行的特定工作及服務；(c) 所提供服務的期限；(d) 促成交易的持牌員工及其主管的姓名。</li>
-                                    <li><strong>員工培訓：</strong>公司必須就佣金政策向員工提供清晰指引和足夠培訓。</li>
-                                </ul>
+                                <List items={[
+                                    "<strong>制定書面政策：</strong>地產代理公司應自行制定書面的佣金政策，考慮因素包括物業價值、交易複雜程度、員工資歷及服務範圍等。",
+                                    "<strong>事前書面披露：</strong>在訂立臨時買賣協議（或購樓意向登記）之前，必須向客戶（買方）提供信函，清晰列明：(a) 收取的佣金金額或費率；(b) 將履行的特定工作及服務；(c) 所提供服務的期限；(d) 促成交易的持牌員工及其主管的姓名。",
+                                    "<strong>員工培訓：</strong>公司必須就佣金政策向員工提供清晰指引和足夠培訓。"
+                                ]} />
                             </div>
                             <div className="bg-slate-50 p-4 rounded border border-slate-200">
                                 <strong className="block text-primary mb-2">銷售點秩序管理（根據《執業通告》18-03(CR)）</strong>
-                                <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                                    <li><strong>委任總樓盤監督：</strong>地產代理公司必須為每個一手樓盤銷售點委任一名<strong>總樓盤監督 (Overall Site Supervisor)</strong>，該人員須符合嚴格資質（例如持牌最少十年、無近期紀律處分記錄等）。</li>
-                                    <li><strong>提前報備：</strong>在銷售開始前最少一天，須向監管局提供被調派員工的名單、指揮系統圖表及內部秩序政策。</li>
-                                    <li><strong>禁止非持牌員工：</strong>嚴禁調派非持牌員工到銷售點進行任何形式的推廣活動。</li>
-                                    <li><strong>行為規範：</strong>員工必須佩戴職員證，不得在公共地方（如地鐵站出入口、行人路）招攬生意、不得截車、不得阻礙公眾地方、不得過分推銷或發生衝突。</li>
-                                </ul>
+                                <List items={[
+                                    "<strong>委任總樓盤監督：</strong>地產代理公司必須為每個一手樓盤銷售點委任一名<strong>總樓盤監督 (Overall Site Supervisor)</strong>，該人員須符合嚴格資質（例如持牌最少十年、無近期紀律處分記錄等）。",
+                                    "<strong>提前報備：</strong>在銷售開始前最少一天，須向監管局提供被調派員工的名單、指揮系統圖表及內部秩序政策。",
+                                    "<strong>禁止非持牌員工：</strong>嚴禁調派非持牌員工到銷售點進行任何形式的推廣活動。",
+                                    "<strong>行為規範：</strong>員工必須佩戴職員證，不得在公共地方（如地鐵站出入口、行人路）招攬生意、不得截車、不得阻礙公眾地方、不得過分推銷或發生衝突。"
+                                ]} />
                             </div>
                         </div>
                 </div>
@@ -336,6 +300,7 @@ export const Part3: React.FC = () => {
                     <li><strong>禁止簽署要項漏空的合約：</strong>同二手交易，嚴禁安排客戶簽署任何要項漏空的臨時買賣合約。</li>
                     <li><strong>禁止虛假或具誤導性陳述：</strong>包括對物業景觀、配套、升值潛力等方面的誇大或不實描述。</li>
                 </ul>
+            </div>
             </div>
         </div>
       </ExportableSection>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader, List, InfoCard } from '../components/UI';
+import { SectionHeader, List, InfoCard, ExamPoint } from '../components/UI';
 import { ExportableSection } from '../components/ExportableSection';
 import { ClipboardList, Megaphone, Handshake, PenTool, Search, AlertTriangle, FileText, CheckCircle } from 'lucide-react';
 
@@ -50,7 +50,7 @@ export const Part2Process: React.FC = () => {
                 
                 <div className="space-y-4">
                     <div>
-                        <strong className="block text-primary-dark font-bold">考點1：強制訂立協議的時間點（《常規規例》第6條）</strong>
+                        <h5 className="text-sm md:text-base font-bold text-primary-dark mb-2">考點1：強制訂立協議的時間點（《常規規例》第6條）</h5>
                         <p className="text-sm text-slate-600 mb-2">地產代理必須在<strong>最早發生</strong>的以下時間點，與客戶訂立訂明地產代理協議：</p>
                         <div className="grid md:grid-cols-2 gap-4 text-sm bg-slate-50 p-4 rounded border">
                             <div>
@@ -73,7 +73,7 @@ export const Part2Process: React.FC = () => {
                     </div>
 
                     <div>
-                        <strong className="block text-primary-dark font-bold">考點2：協議內容的完整性與披露（《常規規例》第5條及附表，表格3-6）</strong>
+                        <h5 className="text-sm md:text-base font-bold text-primary-dark mb-2">考點2：協議內容的完整性與披露（《常規規例》第5條及附表，表格3-6）</h5>
                         <p className="text-sm text-slate-600 mb-2">地產代理協議必須包含以下關鍵內容，並清晰披露：</p>
                         <List items={[
                           "<strong>身份聲明 (Declaration of Agency Status)：</strong>必須清晰說明代理是 (i)只代表賣方/業主（單邊代理）；(ii)只代表買方/租客（單邊代理）；或(iii)同時代表買賣雙方/業主與租客（雙邊代理）。如屬雙邊代理，必須根據《常規規例》第10條，<strong>獲得雙方客戶的知情且書面同意</strong>。",
@@ -88,7 +88,7 @@ export const Part2Process: React.FC = () => {
                     </div>
 
                     <div>
-                        <strong className="block text-primary-dark font-bold">考點3：對無律師代表客戶的解釋責任（《常規規例》第6(3)條）</strong>
+                        <h5 className="text-sm md:text-base font-bold text-primary-dark mb-2">考點3：對無律師代表客戶的解釋責任（《常規規例》第6(3)條）</h5>
                         <p className="text-sm text-slate-600 mb-2">如果客戶沒有律師代表，持牌人必須在客戶簽署協議前：</p>
                         <ol className="list-decimal pl-5 text-sm space-y-1 text-slate-700">
                             <li>向客戶詳細解釋協議中的每一項條款，特別是不同代理模式（單邊/雙邊）的含義及其對客戶權利和義務的影響。</li>
@@ -137,39 +137,31 @@ export const Part2Process: React.FC = () => {
                  <h4 className="font-bold text-lg text-primary mb-3">2. 核心考點精講 (Key Exam Points)</h4>
                  
                  <div className="space-y-4">
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點1：賣方書面同意（《常規規例》第7(3)條）</strong>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                            <li>在發出任何形式的物業廣告前，必須獲得賣方/業主的<strong>明確書面同意</strong>。口頭同意是不足夠的。</li>
-                            <li>廣告內容（尤其是放盤價格）必須與賣方/業主的指示<strong>完全一致</strong>。</li>
-                        </ul>
-                    </div>
+                    <ExamPoint number={1} title="賣方書面同意（《常規規例》第7(3)條）">
+                        <List items={[
+                            "在發出任何形式的物業廣告前，必須獲得賣方/業主的<strong>明確書面同意</strong>。口頭同意是不足夠的。",
+                            "廣告內容（尤其是放盤價格）必須與賣方/業主的指示<strong>完全一致</strong>。"
+                        ]} />
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點2：廣告內容的真實性（《常規規例》第7(1), (2), (4)條及《一手住宅物業銷售條例》）</strong>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
-                            <li><strong>禁止失實陳述：</strong>廣告不得包含在要項上屬虛假或具誤導性的陳述或詳情。</li>
-                            <li><strong>面積表述（極其重要！）：</strong>
-                                <ul className="list-[circle] pl-5 mt-1 text-slate-600">
-                                    <li><strong>二手住宅物業：</strong>如果實用面積可從差餉物業估價署的記錄或首次轉讓的買賣協議中取得，廣告中<strong>必須提供實用面積</strong>。可同時提供建築面積，但實用面積的字體不能比建築面積的字體更小，且必須註明兩種面積的定義。</li>
-                                    <li><strong>一手住宅物業：</strong>根據《一手住宅物業銷售條例》，必須且只能使用<strong>實用面積</strong>進行宣傳和計算呎價。</li>
-                                </ul>
-                            </li>
-                            <li><strong>價格真實性：</strong>不得以低於賣方指示的「吸引價」作廣告，以誘使買家查詢（即<strong>「誘餌式廣告」</strong>是禁止的）。廣告中的價格必須是賣方真實的放盤價。</li>
-                            <li><strong>圖片真實性：</strong>根據《常規規例》第7(2)條，廣告中使用的圖片必須<strong>真實反映該物業的現狀</strong>，不能使用效果圖、電腦合成圖、或同類單位照片進行誤導。</li>
-                            <li><strong>重大不利因素披露：</strong>不應隱瞞或遺漏可能影響客戶決策的重大不利因素（如物業為「凶宅」、有嚴重滲漏、存在未獲解除的政府命令等）。</li>
-                        </ul>
-                    </div>
+                    <ExamPoint number={2} title="廣告內容的真實性（《常規規例》第7(1), (2), (4)條及《一手住宅物業銷售條例》）">
+                        <List items={[
+                            "<strong>禁止失實陳述：</strong>廣告不得包含在要項上屬虛假或具誤導性的陳述或詳情。",
+                            "<strong>面積表述（極其重要！）：</strong><br/><ul class='list-[circle] pl-5 mt-1 text-slate-600'><li><strong>二手住宅物業：</strong>如果實用面積可從差餉物業估價署的記錄或首次轉讓的買賣協議中取得，廣告中<strong>必須提供實用面積</strong>。可同時提供建築面積，但實用面積的字體不能比建築面積的字體更小，且必須註明兩種面積的定義。</li><li><strong>一手住宅物業：</strong>根據《一手住宅物業銷售條例》，必須且只能使用<strong>實用面積</strong>進行宣傳和計算呎價。</li></ul>",
+                            "<strong>價格真實性：</strong>不得以低於賣方指示的「吸引價」作廣告，以誘使買家查詢（即<strong>「誘餌式廣告」</strong>是禁止的）。廣告中的價格必須是賣方真實的放盤價。",
+                            "<strong>圖片真實性：</strong>根據《常規規例》第7(2)條，廣告中使用的圖片必須<strong>真實反映該物業的現狀</strong>，不能使用效果圖、電腦合成圖、或同類單位照片進行誤導。",
+                            "<strong>重大不利因素披露：</strong>不應隱瞞或遺漏可能影響客戶決策的重大不利因素（如物業為「凶宅」、有嚴重滲漏、存在未獲解除的政府命令等）。"
+                        ]} />
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點3：廣告標識（《地產代理條例（發牌）規例》第14(1)(b)、(c)條）</strong>
+                    <ExamPoint number={3} title="廣告標識（《地產代理條例（發牌）規例》第14(1)(b)、(c)條）">
                         <p className="text-sm text-slate-700 mb-1">所有廣告必須清晰顯示以下資料：</p>
                         <ol className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
                             <li>代理的<strong>牌照號碼</strong>或營業詳情說明書號碼。</li>
                             <li>代理的<strong>商號名稱</strong>。</li>
                             <li>物業的獨特編號及廣告發出日期（以便監管局追溯）。</li>
                         </ol>
-                    </div>
+                    </ExamPoint>
                  </div>
             </div>
 
@@ -210,31 +202,28 @@ export const Part2Process: React.FC = () => {
                  <h4 className="font-bold text-lg text-primary mb-3">2. 核心考點精講 (Key Exam Points)</h4>
 
                  <div className="space-y-4">
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點1：公平呈遞所有要約（《常規規例》第11(e), (f)條）</strong>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                            <li>代理必須按收到要約的<strong>先後次序</strong>，<strong>及時、客觀</strong>地將<strong>所有書面要約</strong>（無論出價高低或是否附帶條件）呈遞給賣方/業主。</li>
-                            <li>不得因個人喜好、與買方的關係或期望獲得更高佣金而過濾、延遲或貶低任何要約。</li>
-                            <li><strong>《常規規例》第11(d)條：</strong>若代理同時代表買賣雙方，收到某一方的要約時，必須通知另一方已有要約存在，並將該要約的性質告知另一方。</li>
-                        </ul>
-                    </div>
+                    <ExamPoint number={1} title="公平呈遞所有要約（《常規規例》第11(e), (f)條）">
+                        <List items={[
+                            "代理必須按收到要約的<strong>先後次序</strong>，<strong>及時、客觀</strong>地將<strong>所有書面要約</strong>（無論出價高低或是否附帶條件）呈遞給賣方/業主。",
+                            "不得因個人喜好、與買方的關係或期望獲得更高佣金而過濾、延遲或貶低任何要約。",
+                            "<strong>《常規規例》第11(d)條：</strong>若代理同時代表買賣雙方，收到某一方的要約時，必須通知另一方已有要約存在，並將該要約的性質告知另一方。"
+                        ]} />
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點2：安排視察的責任（《常規規例》第10(a), (b)條）</strong>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                            <li>代理須協助安排買方/租客<strong>視察物業</strong>（包括泊車位和公用地方），並應<strong>陪同視察</strong>，除非買方/租客另有指示。</li>
-                            <li>視察前須<strong>獲得賣方/業主的同意</strong>。</li>
-                            <li><strong>《常規規例》第10(b)條：</strong>若代理同時代表買賣雙方，則必須在獲<strong>雙方書面同意</strong>後，方可向買方/租客展示物業。</li>
-                        </ul>
-                    </div>
+                    <ExamPoint number={2} title="安排視察的責任（《常規規例》第10(a), (b)條）">
+                        <List items={[
+                            "代理須協助安排買方/租客<strong>視察物業</strong>（包括泊車位和公用地方），並應<strong>陪同視察</strong>，除非買方/租客另有指示。",
+                            "視察前須<strong>獲得賣方/業主的同意</strong>。",
+                            "<strong>《常規規例》第10(b)條：</strong>若代理同時代表買賣雙方，則必須在獲<strong>雙方書面同意</strong>後，方可向買方/租客展示物業。"
+                        ]} />
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點3：核實物業狀況與披露（《操守守則》及「盡職調查」原則）</strong>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                            <li>陪同視察時，代理應基於已知信息（如物業資料表格、土地查冊結果）<strong>核實物業狀況是否與描述相符</strong>。</li>
-                            <li>如發現新的或未披露的缺陷（如滲漏、結構問題、違例建築工程），有責任<strong>立即告知買方/租客</strong>，並向賣方/業主查詢，並建議客戶尋求專業意見（如建築師、測量師）。</li>
-                        </ul>
-                    </div>
+                    <ExamPoint number={3} title="核實物業狀況與披露（《操守守則》及「盡職調查」原則）">
+                        <List items={[
+                            "陪同視察時，代理應基於已知信息（如物業資料表格、土地查冊結果）<strong>核實物業狀況是否與描述相符</strong>。",
+                            "如發現新的或未披露的缺陷（如滲漏、結構問題、違例建築工程），有責任<strong>立即告知買方/租客</strong>，並向賣方/業主查詢，並建議客戶尋求專業意見（如建築師、測量師）。"
+                        ]} />
+                    </ExamPoint>
                  </div>
               </div>
 
@@ -276,24 +265,22 @@ export const Part2Process: React.FC = () => {
                  <h4 className="font-bold text-lg text-primary mb-3">2. 核心考點精講 (Key Exam Points)</h4>
 
                  <div className="space-y-4">
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點1：臨時買賣合約的完整性（《常規規例》第13(1)條及《執業通告》）</strong>
+                    <ExamPoint number={1} title="臨時買賣合約的完整性（《常規規例》第13(1)條及《執業通告》）">
                         <p className="text-sm text-slate-700 font-bold mb-1">禁止簽署「空白」或「要項漏空」的合約：</p>
                         <p className="text-sm text-slate-700 mb-2">在安排客戶簽署臨時買賣合約前，合約中所有<strong>關鍵條款的空白位置必須已填寫完畢</strong>。這包括但不限於：</p>
-                        <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
-                            <li>物業地址（須與土地查冊及賣方身份證明文件一致）。</li>
-                            <li>訂約各方（買方及賣方）的全名及身份證明文件號碼。</li>
-                            <li>物業的<strong>成交價</strong>。</li>
-                            <li>付款條款（臨時訂金數額、支付時間、加付訂金數額及支付時間、樓價餘款及支付時間）。</li>
-                            <li><strong>成交日期</strong>（或稱「完成交易日期」）。</li>
-                            <li>交吉狀況（連租約出售或空置交吉）。</li>
-                            <li>物業內連物品清單（如有）。</li>
-                        </ul>
+                        <List items={[
+                            "物業地址（須與土地查冊及賣方身份證明文件一致）。",
+                            "訂約各方（買方及賣方）的全名及身份證明文件號碼。",
+                            "物業的<strong>成交價</strong>。",
+                            "付款條款（臨時訂金數額、支付時間、加付訂金數額及支付時間、樓價餘款及支付時間）。",
+                            "<strong>成交日期</strong>（或稱「完成交易日期」）。",
+                            "交吉狀況（連租約出售或空置交吉）。",
+                            "物業內連物品清單（如有）。"
+                        ]} />
                         <p className="text-xs text-red-600 mt-2 bg-red-50 p-2 rounded">案例意義：讓客戶簽署一份還有關鍵信息空白的合約，是<strong>極其嚴重的違規行為</strong>，會將客戶置於巨大的法律和財務風險之中。地產代理有責任確保所有要項填寫完整。</p>
-                    </div>
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點2：核實賣方身份——最高風險環節（《常規規例》第13(3)條及《執業通告》）</strong>
+                    <ExamPoint number={2} title="核實賣方身份——最高風險環節（《常規規例》第13(3)條及《執業通告》）">
                         <div className="bg-slate-50 p-4 rounded border mt-2">
                              <strong className="text-primary block mb-1">標準核實步驟：</strong>
                              <ol className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
@@ -322,10 +309,9 @@ export const Part2Process: React.FC = () => {
                                  </div>
                              </div>
                         </div>
-                    </div>
+                    </ExamPoint>
 
-                    <div>
-                        <strong className="block text-primary-dark font-bold">考點3：訂金處理的安全機制（《常規規例》第12條及《地產代理條例（發牌）規例》第15條）</strong>
+                    <ExamPoint number={3} title="訂金處理的安全機制（《常規規例》第12條及《地產代理條例（發牌）規例》第15條）">
                         <ul className="list-disc pl-5 text-sm text-slate-700 space-y-2">
                             <li><strong>首選方案：律師托管</strong>
                                 <br/>持牌人必須以書面形式<strong>建議客戶安排由律師行托管所有訂金</strong>（包括臨時訂金和加付訂金），並解釋不托管的潛在風險。這是最安全的做法。
@@ -340,7 +326,7 @@ export const Part2Process: React.FC = () => {
                             </li>
                             <li><strong>訂金收據：</strong>代理在收取任何款項（包括訂金）後，必須立即向付款方發出<strong>書面收據</strong>，列明款項金額、日期、物業地址及付款人姓名。</li>
                         </ul>
-                    </div>
+                    </ExamPoint>
                  </div>
               </div>
 

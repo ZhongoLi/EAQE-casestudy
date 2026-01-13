@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader } from '../components/UI';
+import { SectionHeader, SubSectionHeader, InfoCard, List, ExamPoint } from '../components/UI';
 import { ExportableSection } from '../components/ExportableSection';
 import { BookOpen, Briefcase, Home, UserCheck, GitMerge } from 'lucide-react';
 
@@ -16,24 +16,22 @@ export const Part1: React.FC = () => {
         {/* Section 1 */}
         <ExportableSection label="複製：考試模式">
           <div className="bg-white">
-            <h3 className="text-xl font-bold text-primary border-l-4 border-primary pl-3 mb-4">一、案例題的基本考試模式</h3>
+            <SubSectionHeader title="一、案例題的基本考試模式" />
             <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                <h4 className="font-bold text-lg mb-3 text-primary-dark">題型定位</h4>
-                <ul className="list-disc pl-5 space-y-2 text-slate-700 text-sm">
-                <li>案例題屬於考試第二部分，以個案分析形式命題，需綜合運用知識解決實際問題。</li>
-                <li><strong>地產代理資格考試 (EAQE)：</strong>共50題，其中第二部分為20題（基於1-2個個案）。</li>
-                <li><strong>地產營業員資格考試 (SQE)：</strong>共50題，其中第二部分為10題（基於1-2個個案）。</li>
-                </ul>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                <h4 className="font-bold text-lg mb-3 text-primary-dark">考核目標</h4>
-                <ul className="list-disc pl-5 space-y-2 text-slate-700 text-sm">
-                <li>測試考生融會貫通知識的能力，包括法規理解、實務操作、風險識別及職業道德。</li>
-                <li>要求考生能夠分析真實交易場景，並作出符合法例和執業守則的判斷。</li>
-                </ul>
-            </div>
+              <InfoCard title="題型定位">
+                <List items={[
+                  "案例題屬於考試第二部分，以個案分析形式命題，需綜合運用知識解決實際問題。",
+                  "<strong>地產代理資格考試 (EAQE)：</strong>共50題，其中第二部分為20題（基於1-2個個案）。",
+                  "<strong>地產營業員資格考試 (SQE)：</strong>共50題，其中第二部分為10題（基於1-2個個案）。"
+                ]} />
+              </InfoCard>
+              
+              <InfoCard title="考核目標">
+                <List items={[
+                  "測試考生融會貫通知識的能力，包括法規理解、實務操作、風險識別及職業道德。",
+                  "要求考生能夠分析真實交易場景，並作出符合法例和執業守則的判斷。"
+                ]} />
+              </InfoCard>
             </div>
           </div>
         </ExportableSection>
@@ -41,48 +39,44 @@ export const Part1: React.FC = () => {
         {/* Section 2 */}
         <ExportableSection label="複製：核心考綱">
           <div>
-            <h3 className="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">二、案例題的核心考綱範圍</h3>
+            <SubSectionHeader title="二、案例題的核心考綱範圍" />
             <p className="text-slate-600 mb-4">案例題覆蓋以下跨領域知識點，需結合具體情境作答：</p>
             
             <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 space-y-8">
             {/* Point 1 & 2 */}
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                    <h4 className="font-bold text-primary text-lg mb-2 flex items-center gap-2"><Briefcase size={20}/> 1. 物業交易流程與文件處理</h4>
-                    <div className="space-y-3">
-                        <div>
-                            <strong className="block text-slate-800 text-sm mb-1">關鍵文件的使用：</strong>
-                            <ul className="list-disc pl-5 text-sm text-slate-600 space-y-1">
-                            <li>正確填寫和解釋訂明地產代理協議（表格3-6，根據不同情況選用）、物業資料表格（表格1）、出租資料表格（表格2）。</li>
-                            <li>臨時買賣合約的條款審核（如「現狀」出售、空置管有權交付、成交日期、訂金安排等）。</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <strong className="block text-slate-800 text-sm mb-1">交易環節的合規性：</strong>
-                            <ul className="list-disc pl-5 text-sm text-slate-600 space-y-1">
-                            <li>訂金托管要求（例如應由律師托管，避免直接交予賣方，除非賣方已獲承按人同意）。</li>
-                            <li>成交前查核（例如業權負擔、物業現狀、租約條款、政府命令等）。</li>
-                            </ul>
-                        </div>
+                    <h4 className="font-bold text-primary text-lg mb-4 flex items-center gap-2"><Briefcase size={20}/> 1. 物業交易流程與文件處理</h4>
+                    <div className="space-y-4">
+                        <ExamPoint number={1} title="關鍵文件的使用">
+                            <List items={[
+                                "正確填寫和解釋訂明地產代理協議（表格3-6，根據不同情況選用）、物業資料表格（表格1）、出租資料表格（表格2）。",
+                                "臨時買賣合約的條款審核（如「現狀」出售、空置管有權交付、成交日期、訂金安排等）。"
+                            ]} />
+                        </ExamPoint>
+                        <ExamPoint number={2} title="交易環節的合規性">
+                            <List items={[
+                                "訂金托管要求（例如應由律師托管，避免直接交予賣方，除非賣方已獲承按人同意）。",
+                                "成交前查核（例如業權負擔、物業現狀、租約條款、政府命令等）。"
+                            ]} />
+                        </ExamPoint>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 className="font-bold text-primary text-lg mb-2 flex items-center gap-2"><BookOpen size={20}/> 2. 土地查冊與業權分析</h4>
-                    <div className="space-y-3">
-                        <div>
-                            <strong className="block text-slate-800 text-sm mb-1">查冊文件解讀：</strong>
-                            <ul className="list-disc pl-5 text-sm text-slate-600 space-y-1">
-                            <li>識別物業的有效產權負擔（如按揭、押記令、建築命令、清拆令、大廈公契註冊、訴訟待決登記等）。</li>
-                            <li>分析業權完整性（如聯權共有/分權共有的影響、遺產承辦問題）。</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <strong className="block text-slate-800 text-sm mb-1">風險提示責任：</strong>
-                            <ul className="list-disc pl-5 text-sm text-slate-600 space-y-1">
-                            <li>須向客戶解釋查冊結果（如違例建築工程、租約限制、地價補價要求），並強烈建議客戶徵詢獨立法律意見。</li>
-                            </ul>
-                        </div>
+                    <h4 className="font-bold text-primary text-lg mb-4 flex items-center gap-2"><BookOpen size={20}/> 2. 土地查冊與業權分析</h4>
+                    <div className="space-y-4">
+                        <ExamPoint number={3} title="查冊文件解讀">
+                            <List items={[
+                                "識別物業的有效產權負擔（如按揭、押記令、建築命令、清拆令、大廈公契註冊、訴訟待決登記等）。",
+                                "分析業權完整性（如聯權共有/分權共有的影響、遺產承辦問題）。"
+                            ]} />
+                        </ExamPoint>
+                        <ExamPoint number={4} title="風險提示責任">
+                            <List items={[
+                                "須向客戶解釋查冊結果（如違例建築工程、租約限制、地價補價要求），並強烈建議客戶徵詢獨立法律意見。"
+                            ]} />
+                        </ExamPoint>
                     </div>
                 </div>
             </div>
@@ -156,23 +150,23 @@ export const Part1: React.FC = () => {
         {/* Section 3 */}
         <ExportableSection label="複製：典型特徵">
           <div>
-            <h3 className="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">三、典型案例題特徵</h3>
+            <SubSectionHeader title="三、典型案例題特徵" />
             <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                    <h4 className="font-bold text-primary-dark mb-2 flex items-center gap-2"><GitMerge size={20}/> 場景複雜性強</h4>
+                <InfoCard title="場景複雜性強">
+                    <div className="flex items-center gap-2 mb-2 text-primary-dark font-bold"><GitMerge size={20}/></div>
                     <p className="text-sm text-slate-600">
                         例如：物業涉及多重按揭、業權繼承問題、建築命令或清拆令、違例用途，要求考生識別關鍵風險點及代理應採取的行動。
                     </p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                    <h4 className="font-bold text-primary-dark mb-2 flex items-center gap-2"><GitMerge size={20}/> 多步驟決策鏈</h4>
+                </InfoCard>
+                <InfoCard title="多步驟決策鏈">
+                    <div className="flex items-center gap-2 mb-2 text-primary-dark font-bold"><GitMerge size={20}/></div>
                     <p className="text-sm text-slate-600 mb-2">需按邏輯順序處理：</p>
                     <div className="text-xs text-slate-500 bg-slate-50 p-2 rounded">
                         客戶指示 → 訂立代理協議 → 土地查冊 → 物業視察 → 廣告宣傳 → 轉達要約 → 合約談判 → 簽署合約 → 成交安排 → 售後跟進。
                     </div>
-                </div>
-                <div className="md:col-span-2 bg-blue-50 p-4 rounded-lg border border-blue-100">
-                    <h4 className="font-bold text-primary-dark mb-1">跨法例整合</h4>
+                </InfoCard>
+                <div className="md:col-span-2 bg-blue-50 p-5 rounded-lg border border-blue-100">
+                    <h4 className="font-bold text-primary-dark mb-2">跨法例整合</h4>
                     <p className="text-sm text-slate-700">
                         同一案例可能涉及《地產代理條例》及其規例、《建築物條例》、《印花稅條例》、《防止賄賂條例》、《個人資料（私隱）條例》、《一手住宅物業銷售條例》等多部法例和《操守守則》的交疊要求。
                     </p>
@@ -184,7 +178,7 @@ export const Part1: React.FC = () => {
         {/* Section 4 */}
         <ExportableSection label="複製：考點剖析">
           <div>
-            <h3 className="text-xl font-bold text-primary border-l-4 border-primary pl-3 mt-8 mb-4">四、官方案例題考點剖析</h3>
+            <SubSectionHeader title="四、官方案例題考點剖析" />
             <div className="overflow-x-auto shadow-md rounded-lg border border-slate-200">
             <table className="w-full text-sm text-left text-slate-600">
                 <thead className="text-xs text-white uppercase bg-primary">
