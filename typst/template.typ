@@ -62,7 +62,7 @@
   
   // Table styling
   show table: t => {
-    show table.cell.where(y: 0): set text(weight: "bold", fill: color-primary)
+    show table.cell.where(y: 0): set text(weight: "bold")
     set table(
       stroke: 0.5pt + color-slate-200,
       fill: (x, y) => if y == 0 { color-slate-50 } else { white }
@@ -98,10 +98,19 @@
     ]
   }
 
+  // H3 = 小節標題（一、二、三...）- 更明顯的視覺區分
   show heading.where(level: 3): it => {
-    v(1em)
-    text(size: 11pt, weight: "bold", fill: color-primary-dark, font: font-main, it.body)
-    v(0.5em)
+    v(1.2em)
+    block(below: 0.8em)[
+      #text(size: 12pt, weight: "bold", fill: color-slate-800, font: font-main, it.body)
+    ]
+  }
+
+  // H4 = 細分標題（1. 2. 3. 或編號內容）
+  show heading.where(level: 4): it => {
+    v(0.8em)
+    text(size: 10.5pt, weight: "bold", fill: color-primary, font: font-main, it.body)
+    v(0.4em)
   }
   
   // Cover Page
@@ -151,7 +160,7 @@
     stroke: 1pt + color-slate-200, // border-slate-200
     inset: 16pt, // p-5/p-6
     below: 1.5em,
-    breakable: false
+    breakable: true
   )[
     #stack(dir: ltr, spacing: 0.5em)[
         // Note: Web UI doesn't necessarily show icon in InfoCard unless customized, but previously I added it. 
@@ -218,4 +227,35 @@
       text(fill: color-slate-700, body)
     )
   ]
+}
+
+// Web Style Table
+// Matches Web UI: Deep blue header, light grey first column, horizontal borders only
+#let web-table(columns: (), ..cells) = {
+  show table.cell.where(y: 0): set text(fill: white, weight: "bold")
+  
+  table(
+    columns: columns,
+    fill: (x, y) => if y == 0 { 
+        color-primary 
+    } else if x == 0 { 
+        color-slate-50 
+    } else { 
+        white 
+    },
+    stroke: (x, y) => (
+      bottom: 0.5pt + color-slate-200,
+      top: none,
+      left: none, 
+      right: none
+    ),
+    inset: 12pt,
+    align: (x, y) => if y == 0 or x == 0 { 
+      center + horizon 
+    } else { 
+      left + horizon 
+    },
+    
+    ..cells
+  )
 }
